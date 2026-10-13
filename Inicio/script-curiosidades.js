@@ -202,7 +202,7 @@ const bancoCuriosidades = [
             C: "Coloquei fogo em casa",
             D: "Quebrei o vidro do carro",
         },
-        respostaCorreta: "D" 
+        respostaCorreta: "C" 
     },
     {
         pergunta: "Qual estilo de jogo de tabuleiro eu mais gosto?",
