@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Regras & Local da Festa - Meus 30 Anos - Naiah</title>
+        
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Manufacturing+Consent&display=swap" rel="stylesheet">
+
+        <!-- Configurações do Tailwind -->
+        <script>
+            tailwind.config = {
+                theme:{
+                    extend:{
+                        colors:{
+                            fundoPreto: '#000000',
+                            fundoRosa: '#FAD8D6',
+                            fundoRosaClaro: '#FCEFEF',
+                            fundoVermelho: '#8B0000',
+                            fundoBranco: '#FFFFFF',
+                            textoBranco: '#FFFFFF',
+                            fundoDarkRed: '#1A0000'
+                        },
+                        fontFamily:{
+                            manu:['"Manufacturing Consent"', 'system-ui'],
+                            carlito:['"Carlito"', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <!-- Arquivo de Estilos Externo (CSS) -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="antialiased selection:bg-fundoPreto selection:text-fundoVermelho bg-fundoPreto text-textoBranco bg-[url('imagens/fundo.png')]">
+        
+        <!-- Container onde o cabeçalho/menu é injetado automaticamente via JavaScript -->
+        <div id="header-container"></div>
+
+        <!-- Conteúdo Principal -->
+        <main class="py-12 md:py-20 px-6 max-w-5xl mx-auto space-y-20">
+            
+            <!-- ============================================== -->
+            <!-- SEÇÃO 1: REGRAS DA FESTA                       -->
+            <!-- ============================================== -->
+            <section id="regras">
+                <!-- Cabeçalho da Seção -->
+                <div class="text-center mb-14">
+                    <span class="text-xs uppercase tracking-[0.3em] text-fundoRosa font-carlito font-semibold">Guia do Convidado</span>
+                    <h1 class="font-manu text-4xl sm:text-5xl md:text-6xl text-fundoRosa mt-2 mb-4 tracking-wide">
+                        Regras da festa
+                    </h1>
+                    <div class="w-24 h-1 bg-fundoVermelho mx-auto rounded-full mb-6"></div>
+                    <p class="font-carlito text-base sm:text-lg text-fundoRosa/85 max-w-2xl mx-auto leading-relaxed">
+                        Para que essa noite seja verdadeiramente inesquecível, mágica e divertida para todo mundo, preparamos algumas regrinhas e orientações essenciais. Leia com carinho!
+                    </p>
+                </div>
+
+                <!-- Grid de Regras: Fantasias & Socialização -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Card 1: FANTASIAS -->
+                    <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
+                        <div>
+                            <!-- Ícone e Título -->
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-14 h-14 rounded-2xl bg-fundoVermelho flex-shrink-0 flex items-center justify-center text-white text-2xl group-hover:bg-fundoRosa group-hover:text-fundoVermelho transition-colors shadow-md">
+                                    <i class="fa-solid fa-masks-theater"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-manu text-fundoRosa uppercase tracking-wider">Dress Code Obrigatório</span>
+                                    <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                        Use sua Fantasia!
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <!-- Descrição das Fantasias -->
+                            <div class="space-y-4 font-carlito text-white/90 text-sm sm:text-base leading-relaxed">
+                                <p>
+                                    A comemoração dos meus <strong>30 anos</strong> exige uma produção à altura! O uso de fantasia é parte fundamental da mágica da noite.
+                                </p>
+                                
+                                <ul class="space-y-2.5 pt-2">
+                                    <li class="flex items-start space-x-2">
+                                        <i class="fa-solid fa-wand-magic-sparkles text-fundoRosa mt-1 text-xs"></i>
+                                        <span><strong>Tema Livre & Criativo:</strong> Vista-se de personagens de filmes, ficção, contos góticos, criaturas míticas, heróis, vilões ou algo completamente inusitado!</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <i class="fa-solid fa-sparkles text-fundoRosa mt-1 text-xs"></i>
+                                        <span><strong>Capriche nos detalhes:</strong> Maquiagens marcantes, adereços, perucas, capas e acessórios são super bem-vindos.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <i class="fa-solid fa-circle-exclamation text-fundoVermelho mt-1 text-xs"></i>
+                                        <span><strong>Sem fantasia?</strong> Não vale vir com roupa comum! Quem vier sem fantasia corre o sério risco de receber adereços surpresa da aniversariante na entrada! 🧙‍♀️✨</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-fundoVermelho/40 flex items-center justify-between text-xs font-carlito text-fundoRosa/80">
+                            <span><i class="fa-solid fa-camera mr-1 text-fundoRosa"></i> Teremos muitas fotos!</span>
+                            <span class="font-manu text-sm text-fundoRosa">Solte a imaginação</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: REGRAS DE SOCIALIZAÇÃO -->
+                    <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
+                        <div>
+                            <!-- Ícone e Título -->
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-14 h-14 rounded-2xl bg-fundoVermelho flex-shrink-0 flex items-center justify-center text-white text-2xl group-hover:bg-fundoRosa group-hover:text-fundoVermelho transition-colors shadow-md">
+                                    <i class="fa-solid fa-hand-holding-heart"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-manu text-fundoRosa uppercase tracking-wider">Convivência & Harmonia</span>
+                                    <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                        Regras de Socialização
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <!-- Tópicos de Convivência -->
+                            <div class="space-y-3 font-carlito text-white/90 text-sm sm:text-base leading-relaxed">
+                                <div class="flex items-start space-x-2.5">
+                                    <span class="text-fundoVermelho font-bold text-base">🖤</span>
+                                    <div>
+                                        <strong class="text-fundoRosa">Respeito & Consentimento:</strong> Não é não. Respeite o espaço físico, limites e a vontade de cada um. Aqui o ambiente é de carinho e acolhimento.
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-2.5">
+                                    <span class="text-fundoVermelho font-bold text-base">🚫</span>
+                                    <div>
+                                        <strong class="text-fundoRosa">Tolerância Zero & Assuntos Delicados:</strong> Está EXPRESSAMENTE proibido assuntos relacionados a política e qualquer forma de preconceito ou desrespeito resultará em expulsão imediata da festa. Se comportem! 
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-2.5">
+                                    <span class="text-fundoVermelho font-bold text-base">🚗</span>
+                                    <div>
+                                        <strong class="text-fundoRosa">Se beber, não dirija:</strong> Brinde, curta e dance, mas vá e volte em segurança! Combine caronas amigas ou use transporte por aplicativo (Uber / 99).
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-2.5">
+                                    <span class="text-fundoVermelho font-bold text-base">📸</span>
+                                    <div>
+                                        <strong class="text-fundoRosa">Fotos & Vídeos:</strong> Registre tudo e marque a aniversariante, mas respeite caso alguém peça para não ser filmado ou postado.
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-2.5">
+                                    <span class="text-fundoVermelho font-bold text-base">🏡</span>
+                                    <div>
+                                        <strong class="text-fundoRosa">Cuidado com o Espaço:</strong> Cuide do Palácio da Grã Duquesa Glacir, instalações e decorações com o mesmo zelo que cuidaria da sua própria casa. Ninguém quer ficar de castigo...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-fundoVermelho/40 flex items-center justify-between text-xs font-carlito text-fundoRosa/80">
+                            <span><i class="fa-solid fa-heart mr-1 text-fundoVermelho"></i> Ambiente seguro e feliz</span>
+                            <span class="font-manu text-sm text-fundoRosa">Paz & Diversão</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- ============================================== -->
+            <!-- SEÇÃO 2: LOCAL DA FESTA & MAPA                 -->
+            <!-- ============================================== -->
+            <section id="local-mapa" class="pt-6">
+                <!-- Cabeçalho da Seção -->
+                <div class="text-center mb-12">
+                    <span class="text-xs uppercase tracking-[0.3em] text-fundoRosa font-carlito font-semibold">Como Chegar</span>
+                    <h2 class="font-manu text-4xl sm:text-5xl md:text-6xl text-fundoRosa mt-2 mb-4 tracking-wide">
+                        Local da festa
+                    </h2>
+                    <div class="w-24 h-1 bg-fundoVermelho mx-auto rounded-full mb-6"></div>
+                    <p class="font-carlito text-base sm:text-lg text-fundoRosa/85 max-w-xl mx-auto leading-relaxed">
+                        Confira o endereço oficial e trace sua rota até o local da nossa celebração no Palácio da Grã Duquesa Glacir.
+                    </p>
+                </div>
+
+                <!-- Card de Endereço & Ações Rápidas -->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho rounded-2xl p-6 sm:p-8 shadow-2xl mb-8">
+                    <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+                        
+                        <!-- Detalhes do Endereço -->
+                        <div class="flex items-start space-x-4 text-center md:text-left">
+                            <div class="w-12 h-12 rounded-xl bg-fundoVermelho flex-shrink-0 flex items-center justify-center text-white text-xl shadow-md hidden sm:flex">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <span class="text-xs font-manu text-fundoRosa uppercase tracking-wider">Endereço Completo</span>
+                                <h3 id="textoEndereco" class="font-manu text-2xl sm:text-3xl text-textoBranco">
+                                    Servidão Vitor Francisco da Silveira, 152
+                                </h3>
+                                <p class="font-carlito text-base sm:text-lg text-fundoRosa font-medium">
+                                    Bairro Rio Vermelho • Florianópolis - SC
+                                </p>
+                                <p class="font-carlito text-xs sm:text-sm text-white/70 pt-1">
+                                    <i class="fa-solid fa-circle-info mr-1 text-fundoRosa"></i> Ponto de referência: Rio Vermelho / Norte da Ilha.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Botões de Ação para Navegação -->
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-end items-center flex-shrink-0">
+                            <!-- Botão Copiar Endereço -->
+                            <button onclick="copiarEndereco()" class="inline-flex items-center space-x-2 bg-fundoPreto text-fundoRosa border border-fundoVermelho hover:border-fundoRosa font-manu text-sm px-4 py-2.5 rounded-xl transition-all shadow-md hover:scale-105 active:scale-95">
+                                <i id="iconeCopiar" class="fa-regular fa-copy"></i>
+                                <span id="textoBotaoCopiar">Copiar Endereço</span>
+                            </button>
+
+                            <!-- Abrir no Google Maps -->
+                            <a href="https://www.google.com/maps/search/?api=1&query=Servid%C3%A3o+Vitor+Francisco+da+Silveira+152+Rio+Vermelho+Florianopolis" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="inline-flex items-center space-x-2 bg-fundoVermelho text-white hover:bg-fundoRosa hover:text-fundoVermelho font-manu text-sm px-4 py-2.5 rounded-xl transition-all shadow-md hover:scale-105">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <span>Google Maps</span>
+                            </a>
+
+                            <!-- Abrir no Waze -->
+                            <a href="https://waze.com/ul?q=Servid%C3%A3o+Vitor+Francisco+da+Silveira+152+Rio+Vermelho+Florianopolis" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="inline-flex items-center space-x-2 bg-fundoPreto text-white border border-fundoRosa/50 hover:bg-white hover:text-fundoPreto font-manu text-sm px-4 py-2.5 rounded-xl transition-all shadow-md hover:scale-105">
+                                <i class="fa-brands fa-waze text-sky-400"></i>
+                                <span>Waze</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Minimapa Interativo Centralizado (Google Maps Iframe) -->
+                <div class="max-w-2xl mx-auto rounded-2xl overflow-hidden border-2 border-fundoVermelho hover:border-fundoRosa transition-colors shadow-2xl relative bg-fundoDarkRed h-72 sm:h-80 md:h-96">
+                    <iframe 
+                        title="Mapa do Local da Festa"
+                        src="https://maps.google.com/maps?q=Servid%C3%A3o+Vitor+Francisco+da+Silveira,+152+-+Rio+Vermelho,+Florian%C3%B3polis+-+SC&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        class="w-full h-full border-0 filter brightness-90 contrast-105" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Botão de Voltar ao Início -->
+            <div class="text-center pt-8">
+                <a href="index.html" class="inline-flex items-center space-x-2 bg-fundoVermelho hover:bg-fundoRosa text-white hover:text-fundoVermelho font-manu text-lg px-8 py-3 rounded-xl transition-all duration-300 shadow-xl hover:scale-105">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Voltar para o Início</span>
+                </a>
+            </div>
+
+        </main>
+
+        <!-- Script simples para copiar o endereço com feedback visual -->
+        <script>
+            function copiarEndereco() {
+                const endereco = "Servidão Vitor Francisco da Silveira, 152, Rio Vermelho, Florianópolis - SC";
+                navigator.clipboard.writeText(endereco).then(() => {
+                    const texto = document.getElementById("textoBotaoCopiar");
+                    const icone = document.getElementById("iconeCopiar");
+                    
+                    texto.innerText = "Copiado com sucesso!";
+                    icone.className = "fa-solid fa-check text-green-400";
+                    
+                    setTimeout(() => {
+                        texto.innerText = "Copiar Endereço";
+                        icone.className = "fa-regular fa-copy";
+                    }, 3000);
+                }).catch(err => {
+                    console.error("Erro ao copiar endereço:", err);
+                });
+            }
+        </script>
+
+        <!-- Arquivo JavaScript Externo (para injeção do cabeçalho) -->
+        <script src="script.js"></script>
+    </body>
+</html>

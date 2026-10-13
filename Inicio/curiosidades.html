@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Curiosidades - Meus 30 Anos - Naiah</title>
+        
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Manufacturing+Consent&display=swap" rel="stylesheet">
+
+        <!-- Configurações do Tailwind -->
+        <script>
+            tailwind.config = {
+                theme:{
+                    extend:{
+                        colors:{
+                            fundoPreto: '#000000',
+                            fundoRosa: '#FAD8D6',
+                            fundoVermelho: '#8B0000',
+                            fundoBranco: '#FFFFFF',
+                            textoBranco: '#FFFFFF',
+                            fundoDarkRed: '#1A0000'
+                        },
+                        fontFamily:{
+                            manu:['"Manufacturing Consent"', 'system-ui'],
+                            carlito:['"Carlito"', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <!-- Arquivo de Estilos Externo (CSS) -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="antialiased selection:bg-fundoPreto selection:text-fundoVermelho">
+        
+        <!-- O cabeçalho será injetado aqui -->
+        <div id="header-container"></div>
+
+        <!-- Seção do Quiz de Curiosidades -->
+        <section class="py-16 px-6 relative overflow-hidden flex justify-center items-center">
+            <div class="max-w-md w-full p-6 md:p-8 bg-fundoDarkRed rounded-2xl shadow-xl border border-fundoVermelho relative text-center">
+                
+                <!-- TELA DE BLOQUEIO (Contagem Regressiva) -->
+                <div id="telaBloqueioCuriosidades" class="hidden">
+                    <div class="w-16 h-16 rounded-full bg-fundoPreto border-2 border-fundoVermelho flex items-center justify-center text-fundoRosa mx-auto mb-4 shadow-lg animate-pulse">
+                        <i class="fa-solid fa-lock text-2xl"></i>
+                    </div>
+                    <h2 class="font-manu text-3xl text-fundoRosa mb-2">Quiz Bloqueado</h2>
+                    <p class="text-fundoRosa text-sm font-carlito mb-6 leading-relaxed">
+                        Este desafio misterioso será liberado no momento da festa!
+                    </p>
+
+                    <!-- Contador Regressivo -->
+                    <div class="grid grid-cols-4 gap-2 mb-6">
+                        <div class="bg-fundoPreto border border-fundoVermelho p-2.5 rounded-xl shadow-inner">
+                            <span id="diasContagemCuriosidades" class="block font-manu text-2xl text-fundoRosa font-bold leading-none">00</span>
+                            <span class="text-[10px] uppercase font-carlito text-textoBranco/70 tracking-wider">Dias</span>
+                        </div>
+                        <div class="bg-fundoPreto border border-fundoVermelho p-2.5 rounded-xl shadow-inner">
+                            <span id="horasContagemCuriosidades" class="block font-manu text-2xl text-fundoRosa font-bold leading-none">00</span>
+                            <span class="text-[10px] uppercase font-carlito text-textoBranco/70 tracking-wider">Horas</span>
+                        </div>
+                        <div class="bg-fundoPreto border border-fundoVermelho p-2.5 rounded-xl shadow-inner">
+                            <span id="minutosContagemCuriosidades" class="block font-manu text-2xl text-fundoRosa font-bold leading-none">00</span>
+                            <span class="text-[10px] uppercase font-carlito text-textoBranco/70 tracking-wider">Min</span>
+                        </div>
+                        <div class="bg-fundoPreto border border-fundoVermelho p-2.5 rounded-xl shadow-inner">
+                            <span id="segundosContagemCuriosidades" class="block font-manu text-2xl text-fundoRosa font-bold leading-none">00</span>
+                            <span class="text-[10px] uppercase font-carlito text-textoBranco/70 tracking-wider">Seg</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-fundoRosa/90 font-carlito mb-6 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-calendar-check text-sm"></i>
+                        <span>Liberação: <strong>14 de Novembro às 19h30</strong></span>
+                    </p>
+
+                    <a href="index.html" class="inline-flex items-center space-x-2 bg-fundoVermelho hover:bg-fundoRosa text-white hover:text-fundoVermelho font-manu text-sm px-6 py-2.5 rounded-lg transition-all duration-300 shadow-md">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Voltar para o Início</span>
+                    </a>
+                </div>
+
+                <!-- TELA 1: CADASTRO -->
+                <div id="telaCadastroCuriosidades">
+                    <h2 class="font-manu text-3xl text-fundoRosa mb-2">Curiosidades sobre mim</h2>
+                    <p class="text-fundoRosa text-sm mb-6">Digite seu nome para começar o desafio:</p>
+                    <div class="space-y-4">
+                        <input type="text" id="inputNomeConvidado" placeholder="Seu Nome ou Apelido" class="w-full p-3 bg-fundoPreto border border-fundoVermelho rounded-lg focus:outline-none focus:ring-2 focus:ring-fundoVermelho text-fundoRosa text-sm text-center">
+                        <button onclick="iniciarQuizCuriosidades()" class="w-full bg-fundoVermelho text-white font-manu font-medium py-3 px-4 rounded-lg hover:opacity-90 transition-opacity shadow-md">
+                            Começar Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TELA 2: PERGUNTAS -->
+                <div id="telaQuizCuriosidades" class="hidden">
+                    <h2 class="font-manu text-2xl text-fundoRosa mb-1">Curiosidades sobre mim</h2>
+                    <p id="subtituloCuriosidade" class="text-fundoRosa text-sm font-semibold tracking-wide mb-6">Pergunta 1 de X</p>
+
+                    <!-- Caixa da Pergunta -->
+                    <div class="mb-6 bg-fundoPreto p-4 rounded-xl border border-fundoVermelho/60 shadow-inner min-h-[100px] flex items-center justify-center">
+                        <p id="textoPergunta" class="text-lg font-carlito text-fundoRosa text-center font-bold"></p>
+                    </div>
+
+                    <!-- Área onde os botões A, B, C, D, E vão aparecer -->
+                    <div id="areaAlternativas" class="space-y-3 flex flex-col">
+                        <!-- Botões injetados via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- TELA 3: RESULTADO -->
+                <div id="telaRankingCuriosidades" class="hidden">
+                    <h2 class="font-manu text-3xl text-fundoRosa mb-3">Quiz Concluído! 🏆</h2>
+                    <p id="mensagemPontuacaoCuriosidades" class="text-fundoRosa text-sm mb-4 font-carlito"></p>
+                    
+                    <div class="mb-6 text-left">
+                        <h3 class="font-manu text-xl text-fundoRosa mb-2 text-center border-b border-fundoVermelho/50 pb-2">Ranking de Curiosidades</h3>
+                        <div id="listaRankingCuriosidades" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                            <!-- Preenchido via JS -->
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-3">
+                        <button onclick="reiniciarQuizCuriosidades()" class="w-1/2 bg-fundoVermelho text-white font-manu font-medium py-3 px-2 rounded-lg hover:opacity-95 text-sm">
+                            Jogar de Novo
+                        </button>
+                        <a href="index.html" class="w-1/2 inline-flex items-center justify-center bg-fundoRosa text-fundoVermelho font-manu font-medium py-3 px-2 rounded-lg hover:opacity-95 text-sm">
+                            Início
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Supabase Client & Conexão -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="supabase-client.js"></script>
+
+        <!-- Arquivo JavaScript Externo Específico para este Quiz -->
+        <script src="script-curiosidades.js"></script>
+    </body>
+</html>

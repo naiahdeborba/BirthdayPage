@@ -1,0 +1,101 @@
+<header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between relative">
+    <!-- Logo -->
+    <div class="flex items-center space-x-2">
+        <div class="w-10 h-10 rounded-full bg-fundoVermelho flex items-center justify-center text-white shadow-md">
+            <i class="fa-solid fa-wand-sparkles text-lg"></i>
+        </div>
+        <div class="flex flex-col">
+            <span class="font-system-ui font-normal tracking-widest text-xl text-textoBranco leading-tight">Meus 30 anos...</span>
+            <span class="text-[10px] tracking-[0.25em] text-textoBranco uppercase">Por Naiah</span>
+        </div>
+    </div>
+
+    <!-- Links para Navegação (Desktop) -->
+    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-textoBranco font-manu">
+        <a href="index.html" class="hover:text-fundoRosa transition-colors">Início</a>
+        
+        <!-- Menu Dropdown de Quizzes -->
+        <div class="relative group">
+            <button class="hover:text-fundoRosa transition-colors flex items-center space-x-1 focus:outline-none py-2">
+                <span>Quiz</span>
+                <i class="fa-solid fa-angle-down text-xs"></i>
+            </button>
+            <!-- Subseções ocultas que aparecem ao passar o mouse -->
+            <div class="absolute left-0 mt-0 w-48 bg-fundoPreto border border-fundoVermelho rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col py-2">
+                <a href="quiz.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Qual era a minha idade?</a>
+                <a href="curiosidades.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Curiosidades sobre mim</a>
+            </div>
+        </div>
+
+        <a href="cardapio.html" class="hover:text-fundoRosa transition-colors">Cardápio</a>
+        <a href="presentes.html" class="hover:text-fundoRosa transition-colors">Presentes</a>
+        <a href="local.html" class="hover:text-fundoRosa transition-colors">Local</a>
+        <button onclick="if(typeof toggleCardRadio === 'function' && document.getElementById('painelRadio')){ toggleCardRadio(); } else { window.location.href = 'index.html'; }" class="hover:text-fundoRosa transition-colors cursor-pointer">Rádio</button>
+    </nav>
+
+    <!-- Botão Hamburguer para Mobile -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-textoBranco text-xl p-2 rounded-lg hover:bg-fundoVermelho/30 transition-colors" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+</header>
+
+<!-- Mobile Nav Drawer -->
+<div id="mobileMenu" class="hidden fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex justify-end" onclick="if(event.target === this) toggleMobileMenu()">
+    <div class="bg-fundoPreto border-l border-fundoVermelho w-[85%] max-w-xs h-full p-6 flex flex-col shadow-2xl overflow-y-auto" onclick="event.stopPropagation()">
+        <!-- Topo do Menu -->
+        <div class="flex justify-between items-center pb-4 mb-6 border-b border-fundoVermelho/40">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-full bg-fundoVermelho flex items-center justify-center text-white shadow-md">
+                    <i class="fa-solid fa-wand-sparkles text-sm"></i>
+                </div>
+                <span class="font-system-ui font-normal text-lg text-textoBranco">Meus 30 Anos...</span>
+            </div>
+            <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center rounded-lg text-fundoRosa hover:text-white hover:bg-fundoVermelho/30 transition-colors text-2xl focus:outline-none" aria-label="Fechar menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Links de Navegação -->
+        <nav class="flex flex-col space-y-3 font-carlito text-base text-textoBranco">
+            <a href="index.html" onclick="toggleMobileMenu()" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20">
+                <i class="fa-solid fa-house text-fundoRosa w-5 text-center"></i>
+                <span class="font-medium">Início</span>
+            </a>
+            
+            <!-- Grupo de Quizzes com Destaque -->
+            <div class="py-2 border-b border-fundoVermelho/20">
+                <div class="flex items-center space-x-3 px-3 py-1 text-xs uppercase tracking-wider text-fundoRosa font-semibold">
+                    <i class="fa-solid fa-brain w-5 text-center"></i>
+                    <span>Quizzes:</span>
+                </div>
+                <div class="mt-1 space-y-1 pl-4">
+                    <a href="quiz.html" onclick="toggleMobileMenu()" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg text-sm text-textoBranco/90 hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors">
+                        <i class="fa-solid fa-cake-candles text-xs text-fundoRosa/80"></i>
+                        <span>Qual era a minha idade?</span>
+                    </a>
+                    <a href="curiosidades.html" onclick="toggleMobileMenu()" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg text-sm text-textoBranco/90 hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xs text-fundoRosa/80"></i>
+                        <span>Curiosidades sobre mim</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="cardapio.html" onclick="toggleMobileMenu()" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20">
+                <i class="fa-solid fa-utensils text-fundoRosa w-5 text-center"></i>
+                <span class="font-medium">Cardápio</span>
+            </a>
+            <a href="presentes.html" onclick="toggleMobileMenu()" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20">
+                <i class="fa-solid fa-gift text-fundoRosa w-5 text-center"></i>
+                <span class="font-medium">Presentes</span>
+            </a>
+            <a href="local.html" onclick="toggleMobileMenu()" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20">
+                <i class="fa-solid fa-location-dot text-fundoRosa w-5 text-center"></i>
+                <span class="font-medium">Local</span>
+            </a>
+            <button onclick="toggleMobileMenu(); if(typeof toggleCardRadio === 'function' && document.getElementById('painelRadio')){ toggleCardRadio(); } else { window.location.href = 'index.html'; }" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20 text-left w-full cursor-pointer">
+                <i class="fa-solid fa-radio text-fundoRosa w-5 text-center"></i>
+                <span class="font-medium">Rádio da Festa</span>
+            </button>
+        </nav>
+    </div>
+</div>

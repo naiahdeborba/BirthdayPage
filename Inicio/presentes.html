@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dicas para Presentes - Meus 30 Anos - Naiah</title>
+        
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Manufacturing+Consent&display=swap" rel="stylesheet">
+
+        <!-- Configurações do Tailwind -->
+        <script>
+            tailwind.config = {
+                theme:{
+                    extend:{
+                        colors:{
+                            fundoPreto: '#000000',
+                            fundoRosa: '#FAD8D6',
+                            fundoRosaClaro: '#FCEFEF',
+                            fundoVermelho: '#8B0000',
+                            fundoBranco: '#FFFFFF',
+                            textoBranco: '#FFFFFF',
+                            fundoDarkRed: '#1A0000'
+                        },
+                        fontFamily:{
+                            manu:['"Manufacturing Consent"', 'system-ui'],
+                            carlito:['"Carlito"', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <!-- Arquivo de Estilos Externo (CSS) -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="antialiased selection:bg-fundoPreto selection:text-fundoVermelho bg-fundoPreto text-textoBranco bg-[url('imagens/fundo.png')]">
+        
+        <!-- Container onde o cabeçalho/menu é injetado automaticamente via JavaScript -->
+        <div id="header-container"></div>
+
+        <!-- Conteúdo Principal: Dicas para Presentes -->
+        <main class="py-12 md:py-20 px-6 max-w-4xl mx-auto">
+            
+            <!-- Início da página: Título Centralizado -->
+            <div class="text-center mb-14">
+                <span class="text-xs uppercase tracking-[0.3em] text-fundoRosa font-carlito font-semibold">Wishlist Comemorativa</span>
+                <h1 class="font-manu text-4xl sm:text-5xl md:text-6xl text-fundoRosa mt-2 mb-4 tracking-wide">
+                    Dicas para presentes
+                </h1>
+                <div class="w-24 h-1 bg-fundoVermelho mx-auto rounded-full mb-6"></div>
+                <p class="font-carlito text-base sm:text-lg text-fundoRosa/85 max-w-2xl mx-auto leading-relaxed">
+                    Sua presença é o presente mais importante e aguardado da noite! Mas se você quiser me mimar e estiver na dúvida sobre o que escolher, listei aqui algumas sugestões de coisas que amo para te inspirar:
+                </p>
+            </div>
+
+            <!-- Lista de Presentes (Imagem à esquerda, Descrição à direita) -->
+            <div class="space-y-6 md:space-y-8">
+
+                <!-- Item 1 -->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-5 sm:p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-center group">
+                    <!-- Imagem à Esquerda (Redonda) -->
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex-shrink-0 rounded-full overflow-hidden border-2 border-fundoVermelho group-hover:border-fundoRosa shadow-lg relative bg-fundoPreto transition-colors duration-300">
+                        <img src="imagens/xicara.jpg" 
+                             alt="Café" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <!-- Descrição à Direita -->
+                    <div class="flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left">
+                        <div>
+                            <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                Xícaras & Canecas
+                            </h2>
+                            <p class="font-carlito text-sm sm:text-base text-white/90 leading-relaxed mt-2">
+                                Adoro tomar um cafezinho! Para deixar esse momento mais especial, sempre escolho com muito carinho a xícara perfeita para saborear cada gole. Ter opções lindas e aconchegantes na cozinha faz toda a diferença na rotina.☕✨ 
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start text-xs font-carlito text-fundoRosa/80">
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-mug-hot text-fundoVermelho mr-1"></i> Gatos & Dinossauros
+                            </span>
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-star text-yellow-400 mr-1"></i> Divertidas
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-5 sm:p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-center group">
+                    <!-- Imagem à Esquerda (Redonda) -->
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex-shrink-0 rounded-full overflow-hidden border-2 border-fundoVermelho group-hover:border-fundoRosa shadow-lg relative bg-fundoPreto transition-colors duration-300">
+                        <img src="imagens/canetas.jpg" 
+                             alt="Papelaria" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <!-- Descrição à Direita -->
+                    <div class="flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left">
+                        <div>
+                            <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                Canetinhas & Papelaria
+                            </h2>
+                            <p class="font-carlito text-sm sm:text-base text-white/90 leading-relaxed mt-2">
+                                Sou completamente apaixonado por papelaria! Para deixar qualquer anotação, rascunho ou ideia mais viva, sempre escolho com o maior cuidado as canetinhas e os materiais perfeitos. Ter cores lindas e itens organizados por perto faz toda a diferença na hora de criar. 🖊️✨🎨
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start text-xs font-carlito text-fundoRosa/80">
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-pen text-fundoVermelho mr-1"></i> Blocos de notas & Cadernos
+                            </span>
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-heart text-fundoRosa mr-1"></i> Adesivos & Clipes Divertidos
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-5 sm:p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-center group">
+                    <!-- Imagem à Esquerda (Redonda) -->
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex-shrink-0 rounded-full overflow-hidden border-2 border-fundoVermelho group-hover:border-fundoRosa shadow-lg relative bg-fundoPreto transition-colors duration-300">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original" 
+                             alt="Steam" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <!-- Descrição à Direita -->
+                    <div class="flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left">
+                        <div>
+                            <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                Vale presente Steam
+                            </h2>
+                            <p class="font-carlito text-sm sm:text-base text-white/90 leading-relaxed mt-2">
+                                Minha wishlist da Steam está oficialmente atualizada e cheia de títulos incríveis. Cada jogo nessa lista representa um novo universo para explorar e consquistar novos mundos, garantindo várias horas de diversão.<br> Para essa opção temos: Gift Card diretamente na Steam (necessário conta na Steam) ou em Supermercados comprando o Steam Card. 🚀👾✨
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-5 sm:p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-center group">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex-shrink-0 rounded-full overflow-hidden border-2 border-fundoVermelho group-hover:border-fundoRosa shadow-lg relative bg-fundoPreto transition-colors duration-300">
+                        <img src="imagens/unhas.jpg" 
+                             alt="Unhas" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <!-- Descrição à Direita -->
+                    <div class="flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left">
+                        <div>
+                            <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                Unhas 
+                            </h2>
+                            <p class="font-carlito text-sm sm:text-base text-white/90 leading-relaxed mt-2">
+                                Para deixar esse momento de autocuidado ainda mais especial, a esmaltação é um verdadeiro mimo. Se quiser me presentear com essa opção, vai ser incrível apoiar o trabalho incrível da minha amiga (@nailslusouza) e garantir unhas lindas para a próxima fase! 💅✨💖
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start text-xs font-carlito text-fundoRosa/80">
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-gem text-fundoVermelho mr-1"></i> Manutenção das minhas unhas
+                            </span>
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-cookie text-fundoRosa mr-1"></i> Decoração & Cookies
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5-->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-5 sm:p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-center group">
+                    <!-- Imagem à Esquerda (Redonda) -->
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex-shrink-0 rounded-full overflow-hidden border-2 border-fundoVermelho group-hover:border-fundoRosa shadow-lg relative bg-fundoPreto transition-colors duration-300">
+                        <img src="imagens/lego.jpg" 
+                             alt="Lego" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <!-- Descrição à Direita -->
+                    <div class="flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left">
+                        <div>
+                            <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                Lego & Quebra-cabeças
+                            </h2>
+                            <p class="font-carlito text-sm sm:text-base text-white/90 leading-relaxed mt-2">
+                                Para me divertir enquanto fico doida e ansiosa para finalizar... Brincadeira, todos já sabem que eu adoro quebra-cabeças super desafiantes. Quanto mais dificil for, mais divertido será!
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start text-xs font-carlito text-fundoRosa/80">
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-cubes text-fundoVermelho mr-1"></i> Blocos de Montar (AliExpress)
+                            </span>
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-puzzle-piece text-fundoRosa mr-1"></i> Escolha quantas peças preferir!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6-->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-5 sm:p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-center group">
+                    <!-- Imagem à Esquerda (Redonda) -->
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex-shrink-0 rounded-full overflow-hidden border-2 border-fundoVermelho group-hover:border-fundoRosa shadow-lg relative bg-fundoPreto transition-colors duration-300">
+                        <img src="imagens/camiseta.jpg" 
+                             alt="Camisetas" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <!-- Descrição à Direita -->
+                    <div class="flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left">
+                        <div>
+                            <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                Camisetas & Meias Divertidas 
+                            </h2>
+                            <p class="font-carlito text-sm sm:text-base text-white/90 leading-relaxed mt-2">
+                                Gosto muito de camisetas que tenham imagens ou frases divertidas, algumas opções de lojas (Hippie Artesanato, Chico Rei, Cotton On e Use Bem te Vi). Para meias não é diferente, gosto de estampadas, com personagens, coloridas e brilhantes.
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start text-xs font-carlito text-fundoRosa/80">
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-shirt text-fundoVermelho mr-1"></i> Tamanho M (camisetas)
+                            </span>
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-socks text-fundoRosa mr-1"></i> Tamanho 37 (meias)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-5 sm:p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-center group">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex-shrink-0 rounded-full overflow-hidden border-2 border-fundoVermelho group-hover:border-fundoRosa shadow-lg relative bg-fundoPreto transition-colors duration-300">
+                        <img src="imagens/btCat.jpg" 
+                             alt="Decor" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <!-- Descrição à Direita -->
+                    <div class="flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left">
+                        <div>
+                            <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                Roupas Fitness & Acessórios 
+                            </h2>
+                            <p class="font-carlito text-sm sm:text-base text-white/90 leading-relaxed mt-2">
+                                No momento estou praticando dois esportes de areia duas vezes na semana e estou precisando de roupas para ambos (Utilizo tamanho M). Além de roupas, gostaria de acessórios como bolinhas de Beach tennis na cor rosa e também uma botinha para jogar Futvôlei.
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start text-xs font-carlito text-fundoRosa/80">
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-table-tennis-paddle-ball text-fundoVermelho mr-1"></i> Beach Tennis
+                            </span>
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-volleyball text-fundoRosa mr-1"></i> Futvôlei
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 6: Vales-Presente & Contribuição Espontânea -->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-5 sm:p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-center group">
+                    <!-- Imagem à Esquerda (Redonda) -->
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex-shrink-0 rounded-full overflow-hidden border-2 border-fundoVermelho group-hover:border-fundoRosa shadow-lg relative bg-fundoPreto transition-colors duration-300">
+                        <img src="imagens/dinheiro.jpg" 
+                             alt="Vale Presente ou Mimo Livre" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <!-- Descrição à Direita -->
+                    <div class="flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left">
+                        <div>
+                            <h2 class="font-manu text-2xl sm:text-3xl text-fundoRosa group-hover:text-white transition-colors">
+                                Vale-Presente ou Mimo Livre (PIX)
+                            </h2>
+                            <p class="font-carlito text-sm sm:text-base text-white/90 leading-relaxed mt-2">
+                                Se você prefere a praticidade de um vale-compras (Zara, Sephora, Amazon, Renner) ou gostaria de fazer uma contribuição espontânea via PIX para eu realizar algum projeto ou mimo pessoal dos 30 anos, sinta-se à vontade!
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start text-xs font-carlito text-fundoRosa/80">
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-gift text-fundoVermelho mr-1"></i> Cartão Presente
+                            </span>
+                            <span class="bg-fundoPreto/60 px-3 py-1 rounded-lg border border-fundoVermelho/40">
+                                <i class="fa-solid fa-qrcode text-fundoRosa mr-1"></i> PIX / Chave Opcional
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Botão de Voltar ao Início -->
+            <div class="mt-14 text-center">
+                <a href="index.html" class="inline-flex items-center space-x-2 bg-fundoVermelho hover:bg-fundoRosa text-white hover:text-fundoVermelho font-manu text-lg px-8 py-3 rounded-xl transition-all duration-300 shadow-xl hover:scale-105">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Voltar para o Início</span>
+                </a>
+            </div>
+
+        </main>
+
+        <!-- Arquivo JavaScript Externo (para carregar o cabeçalho e interatividades) -->
+        <script src="script.js"></script>
+    </body>
+</html>

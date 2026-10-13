@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiz - Meus 30 Anos - Naiah</title>
+        
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Manufacturing+Consent&display=swap" rel="stylesheet">
+
+        <!-- Configurações do Tailwind -->
+        <script>
+            tailwind.config = {
+                theme:{
+                    extend:{
+                        colors:{
+                            fundoPreto: '#000000',
+                            fundoRosa: '#FAD8D6',
+                            fundoRosaClaro: '#FCEFEF',
+                            fundoVermelho: '#8B0000',
+                            fundoBranco: '#FFFFFF',
+                            textoBranco: '#FFFFFF',
+                            fundoDarkRed: '#1A0000'
+                        },
+                        fontFamily:{
+                            manu:['"Manufacturing Consent"', 'system-ui'],
+                            carlito:['"Carlito"', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <!-- Arquivo de Estilos Externo (CSS) -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="antialiased selection:bg-fundoPreto selection:text-fundoVermelho bg-[url('imagens/fundo.png')]">
+        
+        <!-- Container onde o cabeçalho será injetado automaticamente via JavaScript -->
+        <div id="header-container"></div>
+
+        <!-- Seção do Quiz -->
+        <section class="py-16 px-6 relative overflow-hidden flex justify-center items-center">
+            <div id="quizContainer" class="max-w-md w-full p-6 md:p-8 bg-fundoDarkRed rounded-2xl shadow-xl border border-fundoVermelho relative text-center">
+                
+                <!-- TELA DE BLOQUEIO (Contagem Regressiva) -->
+                <div id="telaBloqueio" class="hidden">
+                    <div class="w-16 h-16 rounded-full bg-fundoPreto border-2 border-fundoVermelho flex items-center justify-center text-fundoRosa mx-auto mb-4 shadow-lg animate-pulse">
+                        <i class="fa-solid fa-lock text-2xl"></i>
+                    </div>
+                    <h2 class="font-manu text-3xl text-fundoRosa mb-2">Quiz Bloqueado</h2>
+                    <p class="text-fundoRosa text-sm font-carlito mb-6 leading-relaxed">
+                        Este desafio misterioso será liberado no momento da festa!
+                    </p>
+
+                    <!-- Contador Regressivo -->
+                    <div class="grid grid-cols-4 gap-2 mb-6">
+                        <div class="bg-fundoPreto border border-fundoVermelho p-2.5 rounded-xl shadow-inner">
+                            <span id="diasContagem" class="block font-manu text-2xl text-fundoRosa font-bold leading-none">00</span>
+                            <span class="text-[10px] uppercase font-carlito text-textoBranco/70 tracking-wider">Dias</span>
+                        </div>
+                        <div class="bg-fundoPreto border border-fundoVermelho p-2.5 rounded-xl shadow-inner">
+                            <span id="horasContagem" class="block font-manu text-2xl text-fundoRosa font-bold leading-none">00</span>
+                            <span class="text-[10px] uppercase font-carlito text-textoBranco/70 tracking-wider">Horas</span>
+                        </div>
+                        <div class="bg-fundoPreto border border-fundoVermelho p-2.5 rounded-xl shadow-inner">
+                            <span id="minutosContagem" class="block font-manu text-2xl text-fundoRosa font-bold leading-none">00</span>
+                            <span class="text-[10px] uppercase font-carlito text-textoBranco/70 tracking-wider">Min</span>
+                        </div>
+                        <div class="bg-fundoPreto border border-fundoVermelho p-2.5 rounded-xl shadow-inner">
+                            <span id="segundosContagem" class="block font-manu text-2xl text-fundoRosa font-bold leading-none">00</span>
+                            <span class="text-[10px] uppercase font-carlito text-textoBranco/70 tracking-wider">Seg</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-fundoRosa/90 font-carlito mb-6 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-calendar-check text-sm"></i>
+                        <span>Liberação: <strong>14 de Novembro às 19h30</strong></span>
+                    </p>
+
+                    <a href="index.html" class="inline-flex items-center space-x-2 bg-fundoVermelho hover:bg-fundoRosa text-white hover:text-fundoVermelho font-manu text-sm px-6 py-2.5 rounded-lg transition-all duration-300 shadow-md">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Voltar para o Início</span>
+                    </a>
+                </div>
+
+                <!-- TELA 1: CADASTRO DO CONVIDADO -->
+                <div id="telaCadastro">
+                    <h2 class="font-manu text-3xl text-fundoRosa mb-2">Qual era a minha idade?</h2>
+                    <p class="text-fundoRosa text-sm mb-6">Antes de começar, se identifique:</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-normal font-carlito text-fundoRosa uppercase tracking-wider mb-2">Seu Nome ou Apelido:</label>
+                            <input type="text" id="inputNomeConvidado" placeholder="Ex: Gato de Botas, vulgo patinhas" class="w-full p-3 bg-fundoPreto border border-fundoVermelho rounded-lg focus:outline-none focus:ring-2 focus:ring-fundoVermelho text-fundoRosa text-sm text-center">
+                        </div>
+                        <button onclick="iniciarQuiz()" class="w-full bg-fundoVermelho text-white font-manu font-medium py-3 px-4 rounded-lg hover:opacity-90 transition-opacity shadow-md flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Começar Quiz</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TELA 2: PERGUNTAS DO QUIZ (Inicialmente Oculta) -->
+                <div id="telaQuiz" class="hidden">
+                    <h2 class="font-manu text-3xl text-fundoRosa mb-1">Qual era a minha idade?</h2>
+                    <p id="subtituloPergunta" class="text-fundoRosa text-sm font-semibold tracking-wide mb-6">Pergunta 1 de 3</p>
+
+                    <div class="mb-6 bg-fundoPreto p-3 rounded-xl border border-fundoVermelho/60 shadow-inner">
+                        <img id="imagemQuiz" src="" alt="Foto do Quiz" class="w-full h-64 object-cover rounded-lg mb-3 border border-fundoVermelho/30">
+                        <p id="legendaQuiz" class="text-xs font-carlito text-fundoRosa italic px-2"></p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-normal font-manu text-fundoRosa tracking-wider mb-2">Digite sua resposta (anos):</label>
+                            <input type="number" id="inputResposta" min="0" max="99" oninput="if(this.value.length > 2) this.value = this.value.slice(0, 2);" placeholder="Ex: 25" class="w-32 mx-auto block p-3 text-center bg-fundoPreto border border-fundoVermelho rounded-lg focus:outline-none focus:ring-2 focus:ring-fundoVermelho text-fundoRosa text-xl font-bold">
+                        </div>
+                        
+                        <button onclick="verificarResposta()" class="w-full bg-fundoVermelho text-white font-manu font-medium py-3 px-4 rounded-lg hover:opacity-90 transition-opacity shadow-md flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Responder</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TELA 3: RESULTADO E RANKING (Inicialmente Oculta) -->
+                <div id="telaRanking" class="hidden">
+                    <h2 class="font-manu text-3xl text-fundoRosa mb-3">Quiz Concluído! 🏆</h2>
+                    <p id="mensagemPontuacao" class="text-fundoRosa text-sm mb-4 font-carlito"></p>
+                    
+                    <div class="mb-6 text-left">
+                        <h3 class="font-manu text-xl text-fundoRosa mb-2 text-center border-b border-fundoVermelho/50 pb-2">Ranking dos Convidados</h3>
+                        <div id="listaRanking" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                            <!-- Preenchido via JS -->
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-3">
+                        <button onclick="reiniciarQuiz()" class="w-1/2 bg-fundoVermelho text-white font-manu font-medium py-3 px-2 rounded-lg hover:opacity-95 transition-opacity text-sm shadow-md">
+                            Jogar de Novo
+                        </button>
+                        <a href="index.html" class="w-1/2 inline-flex items-center justify-center bg-fundoRosa text-fundoVermelho font-manu font-medium py-3 px-2 rounded-lg hover:opacity-95 transition-opacity text-sm shadow-md">
+                            Início
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Supabase Client & Conexão -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="supabase-client.js"></script>
+
+        <!-- Arquivo JavaScript Externo -->
+        <script src="script.js"></script>
+    </body>
+</html>

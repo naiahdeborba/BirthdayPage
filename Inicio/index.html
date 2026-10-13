@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minha Página de Aniversário - Naiah</title>
+        
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Manufacturing+Consent&display=swap" rel="stylesheet">
+
+        <!-- Configurações do Tailwind -->
+        <script>
+            tailwind.config = {
+                theme:{
+                    extend:{
+                        colors:{
+                            fundoPreto: '#000000',
+                            fundoRosa: '#FAD8D6',
+                            fundoRosaClaro: '#FCEFEF',
+                            fundoVermelho: '#8B0000',
+                            fundoBranco: '#FFFFFF',
+                            textoBranco: '#FFFFFF',
+                            fundoDarkRed: '#1A0000'
+                        },
+                        fontFamily:{
+                            manu:['"Manufacturing Consent"', 'system-ui'],
+                            carlito:['"Carlito"', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <!-- Arquivo de Estilos Externo (CSS) -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="antialiased selection:bg-fundoPreto selection:text-fundoVermelho bg-fundoPreto text-textoBranco">
+        
+        <!-- SEÇÃO 1: TOPO / INÍCIO (CONVITE)               -->
+        <header class="bg-fundoVermelho border-b border-fundoDarkRed/50 shadow-2xl relative overflow-hidden">
+            <!-- Imagem de Fundo (Teias) -->
+            <div class="absolute inset-0 pointer-events-none z-0">
+                <img src="imagens/Teias.png" alt="Teias de aranha decorativas" class="w-full h-full object-cover mix-blend-multiply opacity-80">
+            </div>
+
+            <!-- Container do cabeçalho/menu de navegação -->
+            <div id="header-container" class="relative z-10">
+                <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between relative">
+                    <!-- Logo -->
+                    <div class="flex items-center space-x-2">
+                        <div class="w-10 h-10 rounded-full bg-fundoVermelho flex items-center justify-center text-white shadow-md">
+                            <i class="fa-solid fa-wand-sparkles text-lg"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-system-ui font-normal tracking-widest text-xl text-textoBranco leading-tight">Meus 30 anos...</span>
+                            <span class="text-[10px] tracking-[0.25em] text-textoBranco uppercase">Por Naiah</span>
+                        </div>
+                    </div>
+
+                    <!-- Links para Navegação (Desktop) -->
+                    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-textoBranco font-manu">
+                        <a href="index.html" class="hover:text-fundoRosa transition-colors">Início</a>
+                        
+                        <!-- Menu Dropdown de Quizzes -->
+                        <div class="relative group">
+                            <button class="hover:text-fundoRosa transition-colors flex items-center space-x-1 focus:outline-none py-2">
+                                <span>Quiz</span>
+                                <i class="fa-solid fa-angle-down text-xs"></i>
+                            </button>
+                            <!-- Subseções ocultas que aparecem ao passar o mouse -->
+                            <div class="absolute left-0 mt-0 w-48 bg-fundoPreto border border-fundoVermelho rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col py-2">
+                                <a href="quiz.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Qual era a minha idade?</a>
+                                <a href="curiosidades.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Curiosidades sobre mim</a>
+                            </div>
+                        </div>
+
+                        <a href="cardapio.html" class="hover:text-fundoRosa transition-colors">Cardápio</a>
+                        <a href="presentes.html" class="hover:text-fundoRosa transition-colors">Presentes</a>
+                        <a href="local.html" class="hover:text-fundoRosa transition-colors">Local</a>
+                        <button onclick="if(typeof toggleCardRadio === 'function' && document.getElementById('painelRadio')){ toggleCardRadio(); } else { window.location.href = 'index.html'; }" class="hover:text-fundoRosa transition-colors cursor-pointer">Rádio</button>
+                    </nav>
+
+                    <!-- Botão Hamburguer para Mobile -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-textoBranco text-xl p-2 rounded-lg hover:bg-fundoVermelho/30 transition-colors" aria-label="Abrir menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </header>
+            </div>
+
+            <section id="inicio" class="max-w-6xl mx-auto px-6 py-12 md:py-20 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-center">
+                    
+                    <!-- LADO ESQUERDO: Imagem do Convite com Teia Circular Girando Atrás -->
+                    <div class="flex justify-center items-center">
+                        <div class="relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl aspect-square flex items-center justify-center">
+                            <!-- Teia Circular Girando 360 Graus Lentamente Atrás (Maior) -->
+                            <img src="imagens/TeiaCircular.png" 
+                                 alt="Teia circular girando" 
+                                 class="absolute inset-0 w-full h-full object-contain pointer-events-none z-0 animacao-girar-lento mix-blend-multiply opacity-85 select-none scale-125 sm:scale-135">
+
+                            <!-- Foto da Princesa na Frente (Maior) -->
+                            <img id="fotoConvite" 
+                                 src="imagens/princesa.png" 
+                                 alt="Foto da Princesa - Convite de Aniversário de 30 Anos" 
+                                 class="relative z-10 w-[95%] h-[95%] object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.7)] transition-transform duration-500 hover:scale-105">
+                        </div>
+                    </div>
+
+
+                    <!-- LADO DIREITO: Texto do Convite -->
+                    <div class="flex flex-col justify-center text-center md:text-left space-y-5">
+                        <div class="inline-flex items-center justify-center md:justify-start space-x-2">
+                            <span class="w-8 h-[2px] bg-fundoRosa"></span>
+                            <span class="text-medium font-manu tracking-[0.25em] text-fundoRosa">Festa a Fantasia</span>
+                            <span class="w-8 h-[2px] bg-fundoRosa md:hidden"></span>
+                        </div>
+
+                        <!-- Título na fonte -->
+                        <h1 class="font-manu text-5xl sm:text-6xl lg:text-7xl text-fundoRosa tracking-wide drop-shadow-md">
+                            Convite
+                        </h1>
+
+                        <!-- Parágrafo na fonte Carlito -->
+                        <p class="font-carlito text-lg sm:text-xl lg:text-2xl text-white leading-relaxed font-normal">
+                            Você está sendo especialmente convidado(a) para celebrar comigo esse marco tão significativo e memorável: o meu aniversário de <strong>30 anos</strong>! Preparei este espaço com muito carinho para compartilhar cada detalhe desta noite que será inesquecível. Sua presença é essencial para tornar essa comemoração mágica e completa!
+                        </p>
+
+                        <!-- Atalhos Rápidos (Apenas Texto) -->
+                        <div class="pt-3 flex flex-wrap gap-6 justify-center md:justify-start">
+                            <a href="local.html" class="text-fundoRosa hover:text-white font-manu text-lg md:text-xl transition-colors hover:underline underline-offset-4">
+                                Ver mais informações
+                            </a>
+                            <a href="cardapio.html" class="text-fundoRosa hover:text-white font-manu text-lg md:text-xl transition-colors hover:underline underline-offset-4">
+                                Ver as Delícias
+                            </a>
+                            <button onclick="toggleCardRadio()" class="text-fundoRosa hover:text-white font-manu text-lg md:text-xl transition-colors hover:underline underline-offset-4 flex items-center gap-1.5 cursor-pointer">
+                                <i class="fa-solid fa-radio text-sm"></i>
+                                <span>Rádio</span>
+                            </button>
+                            <a href="#recados" class="text-fundoRosa hover:text-white font-manu text-lg md:text-xl transition-colors hover:underline underline-offset-4">
+                                Deixar Recado
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </header>
+
+        <!-- SEÇÃO 2: DELÍCIAS DA FESTA (MENU DESLIZANTE)   -->
+        <section id="delicias" class="py-20 md:py-28 px-6 bg-fundoPreto relative overflow-hidden">
+            <div class="absolute inset-0 pointer-events-none z-0">
+                <img src="imagens/molduraEspinhos.png" alt="Moldura Espinhos" class="w-full h-full object-cover mix-blend-multiply opacity-80">
+            </div>
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Título Centralizado -->
+                <div class="text-center mb-12">
+                    <span class="text-xs uppercase tracking-[0.3em] text-fundoRosa font-carlito font-semibold">Cardápio do Evento</span>
+                    <h2 class="font-manu text-4xl sm:text-5xl md:text-6xl text-fundoRosa mt-2 mb-4 tracking-wide">
+                        Delícias da festa
+                    </h2>
+                    <div class="w-24 h-1 bg-fundoVermelho mx-auto rounded-full"></div>
+                    <p class="font-carlito text-fundoRosa/85 text-base md:text-lg max-w-xl mx-auto mt-4 leading-relaxed">
+                        Um menu especial pensado com todo carinho para encantar o paladar e brindar aos 30 anos em grande estilo!
+                    </p>
+                </div>
+
+                <!-- Menu de Imagens Deslizantes em Movimento Lento e Contínuo -->
+                <div class="relative w-full overflow-hidden py-4">
+                    
+                    <!-- Efeitos de fade suave nas laterais para entrada e saída elegantes -->
+                    <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-fundoPreto to-transparent z-10"></div>
+                    <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-fundoPreto to-transparent z-10"></div>
+
+                    <!-- Wrapper do Carrossel Contínuo -->
+                    <div class="carrossel-wrapper">
+                        
+                        <!-- GRUPO 1 -->
+                        <div class="carrossel-grupo">
+                            <!-- Item 1: Bolo Comemorativo -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/bolo.jpg" alt="Bolo de Aniversário" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Destaque</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Bolo Comemorativo</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">O momento alto da festa! Visual encantador e sabor inesquecível para o sopro das 30 velinhas.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 2: Docinhos Artesanais -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/mouse.jpg" alt="Doces Finos" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Doces</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Docinhos Gourmet</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">Brigadeiros, beijinhos e muitos outros doces tradicionais feitos à mão todos temáticos.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 3: Bebidas -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/bebidas.jpg" alt="Drinks e Coquetéis" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Bebidas</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Bebidas</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">Teremos opções não álcoolicas e muito gelo para sua própria bebida.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 4: Canapés e Salgados -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/canapes.jpg" alt="Salgados e Canapés" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Salgados</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Canapés & Entradas</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">Variedade de salgados e outras entradas para começar a comemoração com estilo.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 5: Prato Principal -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/massa.jpg" alt="Principal" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Mesa</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Prato Principal</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">Massas artesanais, com uma variedade de molhos para acompanhar.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GRUPO 2 (DUPLICADO PARA LOOP INFINITO PERFEITO) -->
+                        <div class="carrossel-grupo">
+                            <!-- Item 1: Bolo Comemorativo -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/bolo.jpg" alt="Bolo de Aniversário" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Destaque</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Bolo Comemorativo</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">O momento alto da festa! Visual encantador e sabor inesquecível para o sopro das 30 velinhas.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 2: Docinhos Artesanais -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/mouse.jpg" alt="Doces Finos" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Doces</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Docinhos Gourmet</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">Brigadeiros, beijinhos e muitos outros doces tradicionais feitos à mão todos temáticos.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 3: Bebidas -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/bebidas.jpg" alt="Drinks e Coquetéis" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Bebidas</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Bebidas</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">Teremos opções não álcoolicas e muito gelo para sua própria bebida.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 4: Canapés e Salgados -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/canapes.jpg" alt="Salgados e Canapés" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Salgados</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Canapés & Entradas</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">Variedade de salgados e outras entradas para começar a comemoração com estilo.</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 5: Prato Principal -->
+                            <div class="flex-none w-72 sm:w-80 bg-fundoDarkRed rounded-2xl border border-fundoVermelho overflow-hidden shadow-xl hover:border-fundoRosa transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="imagens/massa.jpg" alt="Principal" class="w-full h-full object-cover">
+                                    <span class="absolute top-3 right-3 bg-fundoVermelho/90 text-white text-xs font-manu px-3 py-1 rounded-full border border-fundoRosa/30">Mesa</span>
+                                </div>
+                                <div class="p-5 text-center">
+                                    <h3 class="font-manu text-2xl text-fundoRosa mb-2">Prato Principal</h3>
+                                    <p class="font-carlito text-sm text-white/80 leading-relaxed">Massas artesanais, com uma variedade de molhos para acompanhar.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: OPÇÕES DE QUIZ                       -->
+        <section id="quiz-secao" class="py-20 md:py-28 px-6 bg-fundoDarkRed border-y border-fundoVermelho/50 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- LADO ESQUERDO: Opções de Quiz -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs uppercase tracking-[0.3em] text-fundoRosa font-carlito font-semibold">Desafio dos Convidados</span>
+                            <h2 class="font-manu text-4xl sm:text-5xl text-fundoRosa mt-1 mb-3">
+                                Você me conhece bem?
+                            </h2>
+                            <p class="font-carlito text-white/85 text-base sm:text-lg leading-relaxed">
+                                Participe dos desafios que preparei para testar o quanto você realmente sabe sobre mim e dispute um lugar de destaque no ranking da festa!
+                            </p>
+                        </div>
+
+                        <!-- Opção 1: Qual era a minha idade? -->
+                        <a href="quiz.html" class="block bg-fundoPreto border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-6 transition-all duration-300 transform hover:-translate-y-1 shadow-lg group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-14 h-14 rounded-2xl bg-fundoVermelho flex-shrink-0 flex items-center justify-center text-white text-2xl group-hover:bg-fundoRosa group-hover:text-fundoVermelho transition-colors shadow-md">
+                                    <i class="fa-solid fa-camera-retro"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="font-manu text-2xl text-fundoRosa group-hover:text-white transition-colors">Qual era a minha idade?</h3>
+                                        <span class="text-xs font-manu text-fundoVermelho bg-fundoRosa px-2.5 py-0.5 rounded-full">Fotos</span>
+                                    </div>
+                                    <p class="font-carlito text-sm text-white/70 mt-1">Veja fotos minhas em várias fases e tente adivinhar quantos anos eu tinha em cada uma.</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Opção 2: Curiosidades sobre mim -->
+                        <a href="curiosidades.html" class="block bg-fundoPreto border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-6 transition-all duration-300 transform hover:-translate-y-1 shadow-lg group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-14 h-14 rounded-2xl bg-fundoVermelho flex-shrink-0 flex items-center justify-center text-white text-2xl group-hover:bg-fundoRosa group-hover:text-fundoVermelho transition-colors shadow-md">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="font-manu text-2xl text-fundoRosa group-hover:text-white transition-colors">Curiosidades sobre mim</h3>
+                                        <span class="text-xs font-manu text-fundoVermelho bg-fundoRosa px-2.5 py-0.5 rounded-full">Quiz</span>
+                                    </div>
+                                    <p class="font-carlito text-sm text-white/70 mt-1">Perguntas de múltipla escolha com fatos divertidos, hábitos e segredos da minha trajetória.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- LADO DIREITO: Imagem da Seção de Quiz (Troque o 'src' pela sua foto depois) -->
+                    <div class="flex justify-center">
+                        <div class="relative w-full max-w-sm sm:max-w-md aspect-[4/5]">
+                            <!-- FOTO DA SEÇÃO DE QUIZ: Altere o atributo 'src' abaixo para o arquivo da sua foto -->
+                            <img id="fotoSecaoQuiz" 
+                                 src="imagens/toalha.png" 
+                                 alt="Seção Quiz index" 
+                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            
+                            <div class="absolute inset-0 flex items-end p-6">
+                                <span class="text-xs font-carlito text-fundoRosa bg-fundoPreto/80 px-3.5 py-1.5 rounded-full border border-fundoVermelho backdrop-blur-sm shadow-md">
+                                    <i class="fa-solid fa-crown mr-1.5 text-yellow-400"></i> Quem acerta mais?
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: DEIXAR RECADOS                       -->
+        <section id="recados" class="py-24 px-6 relative overflow-hidden bg-[url('imagens/fundo.png')]">
+            <div class="max-w-xl mx-auto my-6 p-6 md:p-8 bg-fundoDarkRed rounded-2xl shadow-xl border border-fundoVermelho relative">
+                
+                <!-- POP-UP DE SUCESSO -->
+                <div id="popupSucesso" class="hidden absolute -top-14 left-1/2 transform -translate-x-1/2 bg-fundoRosa text-fundoVermelho border border-fundoVermelho px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 transition-all duration-300 z-50 text-sm font-semibold">
+                    <div class="flex items-center justify-center">
+                        <i class="fa-solid fa-heart text-base"></i>
+                    </div>
+                    <span>Recado enviado com sucesso, obrigada! (*ᴗ͈ˬᴗ͈)ꕤ*.ﾟ</span>
+                </div>
+
+                <div class="text-center mb-6">
+                    <h3 class="font-manu text-3xl text-fundoRosa mb-2">Deixe o seu Recado:</h3>
+                    <p class="text-fundoRosa text-sm">Escreva uma mensagem especial para guardar de lembrança!</p>
+                </div>
+
+                <!-- Formulário para digitar o recado -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-normal font-carlito text-fundoRosa uppercase tracking-wider mb-1">Seu nome:</label>
+                        <input type="text" id="inputNome" placeholder="Ex: Branca de Neve" class="w-full p-3 bg-fundoPreto border border-fundoVermelho rounded-lg focus:outline-none focus:ring-2 focus:ring-fundoVermelho text-fundoRosa text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-normal font-carlito text-fundoRosa uppercase tracking-wider mb-1">Sua mensagem:</label>
+                        <input type="text" id="inputRecado" placeholder="Escreva o seu recado carinhoso aqui..." class="w-full p-3 bg-fundoPreto border border-fundoVermelho rounded-lg focus:outline-none focus:ring-2 focus:ring-fundoVermelho text-fundoRosa text-sm">
+                    </div>
+                    <button onclick="enviarRecado()" class="w-full bg-fundoVermelho text-white font-manu font-medium py-3 px-4 rounded-lg hover:opacity-90 transition-opacity shadow-md flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-crow"></i>
+                        <span>Enviar Recado</span>
+                    </button>
+                </div>
+
+                <!-- Mural onde os recados aparecem dinamicamente -->
+                <div class="mt-8 border-t border-fundoVermelho/40 pt-6">
+                    <h4 class="font-manu text-xl text-fundoRosa mb-4">Mural de recados</h4>
+                    <div id="listaRecados" class="space-y-3 max-h-80 overflow-y-auto pr-1">
+                        <!-- Recado de Exemplo -->
+                        <div class="p-4 bg-fundoBranco border-l-4 border-fundoRosa rounded-r-lg shadow-sm">
+                            <p class="text-xs font-manu font-normal text-fundoPreto mb-1">Bela Adormecida</p>
+                            <p class="text-sm font-carlito text-fundoPreto leading-relaxed">Parabéns pelo seu dia mágico! Você é um sonho gata. ❤️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- RÁDIO FLUTUANTE (OPÇÃO 1)                  -->
+        <!-- ========================================== -->
+        
+        <!-- Elemento de Áudio HTML5 -->
+        <audio id="musicaFesta" src="musica.mp3" loop preload="auto"></audio>
+
+        <!-- Container Fixo no Canto Inferior Direito -->
+        <aside aria-label="Rádio Flutuante" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 select-none">
+            
+            <!-- Painel / Card Expansível da Rádio -->
+            <div id="painelRadio" class="hidden w-72 sm:w-80 bg-fundoDarkRed/95 border-2 border-fundoVermelho text-white rounded-2xl shadow-2xl p-5 backdrop-blur-md transition-all duration-300 relative">
+                
+                <!-- Cabeçalho do Card -->
+                <div class="flex items-center justify-between border-b border-fundoVermelho/50 pb-3 mb-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-radio text-fundoRosa text-base"></i>
+                        <h4 class="font-manu text-xl text-fundoRosa tracking-wide">Rádio da Festa</h4>
+                    </div>
+                    <button onclick="fecharCardRadio()" class="text-fundoRosa hover:text-white text-lg transition-colors p-1" title="Minimizar">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+
+                <!-- Conteúdo: Player de Música / MP3 (Opção 1) -->
+                <div id="conteudoRadioMp3" class="flex flex-col items-center text-center space-y-4">
+                    
+                    <!-- Disco de Vinil com Animação -->
+                    <div class="relative w-20 h-20 flex items-center justify-center">
+                        <i id="discoVinil" class="fa-solid fa-compact-disc text-6xl text-fundoRosa drop-shadow-md"></i>
+                        <div class="absolute w-4 h-4 bg-fundoDarkRed rounded-full border border-fundoVermelho"></div>
+                    </div>
+
+                    <!-- Informações da Faixa -->
+                    <div>
+                        <p class="font-manu text-base text-fundoRosa">Meus 30 Anos</p>
+                        <p id="statusMusica" class="font-carlito text-xs text-white/70">Clique abaixo para tocar</p>
+                    </div>
+
+                    <!-- Botão de Ação Play/Pause -->
+                    <button onclick="alternarMusica()" class="w-full bg-fundoVermelho hover:bg-fundoRosa hover:text-fundoVermelho text-white font-manu text-sm py-2.5 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:scale-105 active:scale-95 cursor-pointer">
+                        <i id="iconePlayCard" class="fa-solid fa-play"></i>
+                        <span id="textoBotaoCard">Tocar Música</span>
+                    </button>
+
+                    <!-- Controle de Volume -->
+                    <div class="w-full flex items-center gap-2 pt-1 px-2">
+                        <i class="fa-solid fa-volume-low text-xs text-fundoRosa"></i>
+                        <input type="range" min="0" max="1" step="0.05" value="0.2" oninput="alterarVolume(this.value)" class="w-full accent-fundoRosa cursor-pointer h-1.5 bg-fundoPreto rounded-lg">
+                        <i class="fa-solid fa-volume-high text-xs text-fundoRosa"></i>
+                    </div>
+
+                    <p class="text-[11px] text-fundoRosa/80 font-carlito flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-music text-xs"></i>
+                        <span>Trilha sonora oficial carregada!</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Botão Flutuante Principal (Pill / Mini Player) -->
+            <div class="flex items-center gap-2">
+                
+                <!-- Botão de Tocar / Pausar -->
+                <button id="btnFloatingPlay" onclick="alternarMusica()" class="group bg-fundoVermelho hover:bg-fundoDarkRed text-white border-2 border-fundoRosa px-4 py-2.5 rounded-full shadow-[0_4px_20px_rgba(139,0,0,0.6)] flex items-center space-x-3 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer">
+                    <i id="iconePlay" class="fa-solid fa-compact-disc text-2xl text-fundoRosa transition-transform duration-500"></i>
+                    
+                    <div class="flex flex-col text-left">
+                        <span class="font-manu text-sm text-fundoRosa leading-tight">Rádio da Festa</span>
+                        <span id="textoStatusMini" class="text-[11px] font-carlito text-white/90">Tocar Música</span>
+                    </div>
+
+                    <!-- Barrinhas de equalizador animadas quando tocando -->
+                    <div id="equalizerBars" class="hidden flex items-end gap-1 h-4 ml-1">
+                        <span class="w-1 bg-fundoRosa rounded-full animate-bounce h-3"></span>
+                        <span class="w-1 bg-fundoRosa rounded-full animate-bounce h-4" style="animation-delay: 0.15s"></span>
+                        <span class="w-1 bg-fundoRosa rounded-full animate-bounce h-2" style="animation-delay: 0.3s"></span>
+                    </div>
+                </button>
+
+                <!-- Botão para abrir os controles / opções -->
+                <button onclick="toggleCardRadio()" title="Opções da rádio" class="w-10 h-10 rounded-full bg-fundoDarkRed border-2 border-fundoRosa text-fundoRosa hover:text-white hover:border-white flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95 cursor-pointer">
+                    <i class="fa-solid fa-sliders text-sm"></i>
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- Mobile Nav Drawer -->
+        <div id="mobileMenu" class="hidden fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex justify-end" onclick="if(event.target === this) toggleMobileMenu()">
+            <div class="bg-fundoPreto border-l border-fundoVermelho w-[85%] max-w-xs h-full p-6 flex flex-col shadow-2xl overflow-y-auto" onclick="event.stopPropagation()">
+                <!-- Topo do Menu -->
+                <div class="flex justify-between items-center pb-4 mb-6 border-b border-fundoVermelho/40">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-fundoVermelho flex items-center justify-center text-white shadow-md">
+                            <i class="fa-solid fa-wand-sparkles text-sm"></i>
+                        </div>
+                        <span class="font-system-ui font-normal text-lg text-textoBranco">Meus 30 Anos...</span>
+                    </div>
+                    <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center rounded-lg text-fundoRosa hover:text-white hover:bg-fundoVermelho/30 transition-colors text-2xl focus:outline-none" aria-label="Fechar menu">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Links de Navegação -->
+                <nav class="flex flex-col space-y-3 font-carlito text-base text-textoBranco">
+                    <a href="index.html" onclick="toggleMobileMenu()" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20">
+                        <i class="fa-solid fa-house text-fundoRosa w-5 text-center"></i>
+                        <span class="font-medium">Início</span>
+                    </a>
+                    
+                    <!-- Grupo de Quizzes com Destaque -->
+                    <div class="py-2 border-b border-fundoVermelho/20">
+                        <div class="flex items-center space-x-3 px-3 py-1 text-xs uppercase tracking-wider text-fundoRosa font-semibold">
+                            <i class="fa-solid fa-brain w-5 text-center"></i>
+                            <span>Quizzes:</span>
+                        </div>
+                        <div class="mt-1 space-y-1 pl-4">
+                            <a href="quiz.html" onclick="toggleMobileMenu()" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg text-sm text-textoBranco/90 hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors">
+                                <i class="fa-solid fa-cake-candles text-xs text-fundoRosa/80"></i>
+                                <span>Qual era a minha idade?</span>
+                            </a>
+                            <a href="curiosidades.html" onclick="toggleMobileMenu()" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg text-sm text-textoBranco/90 hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors">
+                                <i class="fa-solid fa-wand-magic-sparkles text-xs text-fundoRosa/80"></i>
+                                <span>Curiosidades sobre mim</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="cardapio.html" onclick="toggleMobileMenu()" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20">
+                        <i class="fa-solid fa-utensils text-fundoRosa w-5 text-center"></i>
+                        <span class="font-medium">Cardápio</span>
+                    </a>
+                    <a href="presentes.html" onclick="toggleMobileMenu()" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20">
+                        <i class="fa-solid fa-gift text-fundoRosa w-5 text-center"></i>
+                        <span class="font-medium">Presentes</span>
+                    </a>
+                    <a href="local.html" onclick="toggleMobileMenu()" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20">
+                        <i class="fa-solid fa-location-dot text-fundoRosa w-5 text-center"></i>
+                        <span class="font-medium">Local</span>
+                    </a>
+                    <button onclick="toggleMobileMenu(); if(typeof toggleCardRadio === 'function' && document.getElementById('painelRadio')){ toggleCardRadio(); } else { window.location.href = 'index.html'; }" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-fundoVermelho/30 hover:text-fundoRosa transition-colors border-b border-fundoVermelho/20 text-left w-full cursor-pointer">
+                        <i class="fa-solid fa-radio text-fundoRosa w-5 text-center"></i>
+                        <span class="font-medium">Rádio da Festa</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Supabase Client & Conexão -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="supabase-client.js"></script>
+
+        <!-- Arquivo JavaScript Externo -->
+        <script src="script.js?v=2"></script>
+    </body>
+</html>
