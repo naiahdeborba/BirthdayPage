@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
             if(container) container.innerHTML = data;
         })
         .catch(error => console.error("Erro ao carregar cabeçalho:", error));
+
+    iniciarContagemCuriosidades();
 });
 
 function toggleMobileMenu() {
@@ -23,8 +25,59 @@ function toggleMobileMenu() {
     }
 }
 
-// 1. Banco de Perguntas (Você pode editar as perguntas e opções como quiser!)
-// Coloquei um exemplo com base no seu gosto por jogos de tabuleiro (Everdell).
+// CONTAGEM REGRESSIVA E BLOQUEIO DO QUIZ DE CURIOSIDADES
+let intervaloContagemCuriosidades = null;
+
+function iniciarContagemCuriosidades() {
+    const telaBloqueio = document.getElementById('telaBloqueioCuriosidades');
+    const telaCadastro = document.getElementById('telaCadastroCuriosidades');
+
+    // Se não encontrar as telas na página, encerra a execução
+    if (!telaBloqueio || !telaCadastro) return;
+
+    // Data e hora do início da festa (Ano, Mês [0-11], Dia, Hora, Minuto)
+    // Nota em JS: Novembro é mês 10!
+    const dataFesta = new Date(2026, 10, 14, 19, 30, 0).getTime(); // 14/Nov/2026 às 19h30
+
+    function atualizar() {
+        const agora = new Date().getTime();
+        const diferenca = dataFesta - agora;
+
+        // Se o horário da festa já chegou ou passou
+        if (diferenca <= 0) {
+            if (intervaloContagemCuriosidades) clearInterval(intervaloContagemCuriosidades);
+            telaBloqueio.classList.add('hidden');
+            telaCadastro.classList.remove('hidden');
+            return;
+        }
+
+        // Se ainda é antes da festa, mantém bloqueado e oculta o cadastro
+        telaBloqueio.classList.remove('hidden');
+        telaCadastro.classList.add('hidden');
+
+        // Cálculos do tempo restante
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        // Atualiza os contadores no HTML usando os IDs com 'Curiosidades' no final
+        const elDias = document.getElementById('diasContagemCuriosidades');
+        const elHoras = document.getElementById('horasContagemCuriosidades');
+        const elMinutos = document.getElementById('minutosContagemCuriosidades');
+        const elSegundos = document.getElementById('segundosContagemCuriosidades');
+
+        if (elDias) elDias.innerText = String(dias).padStart(2, '0');
+        if (elHoras) elHoras.innerText = String(horas).padStart(2, '0');
+        if (elMinutos) elMinutos.innerText = String(minutos).padStart(2, '0');
+        if (elSegundos) elSegundos.innerText = String(segundos).padStart(2, '0');
+    }
+
+    atualizar();
+    if (intervaloContagemCuriosidades) clearInterval(intervaloContagemCuriosidades);
+    intervaloContagemCuriosidades = setInterval(atualizar, 1000);
+}
+
 const bancoCuriosidades = [
     {
         pergunta: "Onde que eu nasci?",
@@ -241,7 +294,7 @@ let indiceCuriosidade = 0;
 let pontosCuriosidades = 0;
 let nomeJogadorCuriosidade = "";
 
-// 2. Inicia o Quiz
+// Inicia o Quiz
 function iniciarQuizCuriosidades() {
     const inputNome = document.getElementById('inputNomeConvidado');
     nomeJogadorCuriosidade = inputNome.value.trim();
@@ -259,7 +312,7 @@ function iniciarQuizCuriosidades() {
     carregarCuriosidade();
 }
 
-// 3. Carrega a pergunta e cria os botões A, B, C, D, E dinamicamente
+//Carrega a pergunta e cria os botões A, B, C, D, E dinamicamente
 function carregarCuriosidade() {
     const perguntaAtual = bancoCuriosidades[indiceCuriosidade];
     

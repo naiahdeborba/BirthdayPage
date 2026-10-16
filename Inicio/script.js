@@ -136,6 +136,7 @@ function carregarCabecalho() {
 document.addEventListener("DOMContentLoaded", () => {
     carregarCabecalho();
     carregarRecadosDoBanco();
+    iniciarContagemRegressiva(); //Inicia o cronômetro do quiz
 });
 
 // Função para controlar a abertura e fechamento do menu mobile
@@ -267,7 +268,53 @@ function rolarCarrossel(direcao) {
 
 
 // --- LÓGICA DO QUIZ ---
+//CONTAGEM REGRESSIVA E BLOQUEIO DO QUIZ
+let intervaloContagem = null;
 
+function iniciarContagemRegressiva(){
+    const telaBloqueio = document.getElementById('telaBloqueio');
+    const telaCadastro = document.getElementById('telaCadastro');
+    //Se não tiver na página do quiz (onde esses elementos existem), ignora a função
+    if (!telaBloqueio || !telaCadastro) return;
+
+    const dataFesta = new Date(2026, 10, 14, 19, 30, 0).getTime();
+
+    function atualizar(){
+        const agora = new Date().getTime();
+        const diferenca = dataFesta - agora;
+
+        //Se o horário da festa já chegou ou passou
+        if (diferenca <= 0){
+            if (intervaloContagem) clearInterval(intervaloContagem);
+            telaBloqueio.classList.add('hidden');
+            telaCadastro.classList.remove('hidden');
+            return;
+        }
+
+        //Se ainda é antes da festa, mantém bloqueado
+        telaBloqueio.classList.remove('hidden');
+        telaCadastro.classList.add('hidden');
+
+        //Cálculo do tempo restante
+        const dias = Math.floor(diferenca /(1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca %(1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca %(1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        // Atualiza os contadores no HTML
+        const elDias = document.getElementById('diasContagem');
+        const elHoras = document.getElementById('horasContagem');
+        const elMinutos = document.getElementById('minutosContagem');
+        const elSegundos = document.getElementById('segundosContagem');
+
+        if (elDias) elDias.innerText = String(dias).padStart(2, '0');
+        if (elHoras) elHoras.innerText = String(horas).padStart(2, '0');
+        if (elMinutos) elMinutos.innerText = String(minutos).padStart(2, '0');
+        if (elSegundos) elSegundos.innerText = String(segundos).padStart(2, '0');
+    }
+    atualizar();
+    intervaloContagem = setInterval(atualizar, 1000);
+}
 // Lista de perguntas do quiz (Você pode alterar fotos, legendas e idades conforme preferir)
 const perguntasQuiz = [
     {
@@ -298,7 +345,7 @@ const perguntasQuiz = [
     {
         foto: "imagens/quiz/Nai33.jpg",
         legenda: "Foto com o tapete Mágico após o gênio se aposentar",
-        idadeCorreta: 1 
+        idadeCorreta: 2 
     },
     {
         foto: "imagens/quiz/Nai23.jpg",
@@ -339,6 +386,46 @@ const perguntasQuiz = [
         foto: "imagens/quiz/Nai34.jpg",
         legenda: "Aproveitando a varanda do meu castelo mágico",
         idadeCorreta: 5
+    },
+    {
+        foto: "imagens/quiz/Nai1.jpg",
+        legenda: "Registro após uma longa caminhada pelos penhascos da Feiticeira",
+        idadeCorreta: 17
+    },
+    {
+        foto: "imagens/quiz/Nai8.jpg",
+        legenda: "Tentando domar a filha da Moby-Dick",
+        idadeCorreta: 10
+    },
+    {
+        foto: "imagens/quiz/Nai2.jpg",
+        legenda: "Voltando de um passeio com as sereias",
+        idadeCorreta: 20
+    },
+    {
+        foto: "imagens/quiz/Nai19.jpg",
+        legenda: "Registro do dia que uma bruxa me amaldiçou a virar lobismulher",
+        idadeCorreta: 15
+    },
+    {
+        foto: "imagens/quiz/Nai21.jpg",
+        legenda: "Mostrando a instalação de uma técnologia revulocionária que iria mudar o futuro",
+        idadeCorreta: 19
+    },
+    {
+        foto: "imagens/quiz/Nai8.jpg",
+        legenda: "Tentando domar a filha da Moby-Dick",
+        idadeCorreta: 10
+    },
+    {
+        foto: "imagens/quiz/Nai8.jpg",
+        legenda: "Tentando domar a filha da Moby-Dick",
+        idadeCorreta: 10
+    },
+    {
+        foto: "imagens/quiz/Nai8.jpg",
+        legenda: "Tentando domar a filha da Moby-Dick",
+        idadeCorreta: 10
     }
 ];
 

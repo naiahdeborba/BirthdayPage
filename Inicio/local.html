@@ -50,9 +50,60 @@
         <!-- Conteúdo Principal -->
         <main class="py-12 md:py-20 px-6 max-w-5xl mx-auto space-y-20">
             
-            <!-- ============================================== -->
-            <!-- SEÇÃO 1: REGRAS DA FESTA                       -->
-            <!-- ============================================== -->
+            <!-- DATA E HORÁRIO DA FESTA -->
+            <section id="apresentacao" class="text-center">
+                <!-- Distintivo/Selo Superior -->
+                <div class="inline-flex items-center space-x-2 bg-fundoDarkRed border border-fundoVermelho px-4 py-1.5 rounded-full mb-6 shadow-md">
+                    <i class="fa-solid fa-moon text-fundoRosa text-xs"></i>
+                    <span class="text-xs uppercase tracking-[0.25em] text-fundoRosa font-carlito font-semibold">Uma Noite Mágica & Misteriosa</span>
+                </div>
+
+                <!-- Título Principal -->
+                <h1 class="font-manu text-4xl sm:text-5xl md:text-6xl text-fundoRosa mb-4 tracking-wide">
+                    Data & Horário
+                </h1>
+                <div class="w-24 h-1 bg-fundoVermelho mx-auto rounded-full mb-8"></div>
+
+                <!-- Mensagem de Convite -->
+                <div class="bg-fundoDarkRed border-2 border-fundoVermelho rounded-2xl p-6 sm:p-8 shadow-2xl max-w-3xl mx-auto text-left space-y-4 font-carlito text-base sm:text-lg text-white/90 leading-relaxed relative overflow-hidden">
+                    <p class="text-center font-manu text-xl sm:text-2xl text-fundoRosa mb-2">
+                        ✨ Trinta anos se comemora com estilo... e muita fantasia! ✨
+                    </p>
+                    <p>
+                        Como este ano o meu aniversário cai exatamente em uma lendária <strong>Sexta-Feira 13</strong>, resolvi abraçar esse clima místico e preparar um verdadeiro <strong>Baile a Fantasia</strong>! Mas como quero comemorar com todas as pessoas que guardo no meu coração, iremos comemorar no sábado!
+                    </p>
+                    <p>
+                        Então preparem as suas melhores fantasias, caprichem nos detalhes e venham celebrar três décadas da minha história em uma noite cheia de música, mistérios e boas memórias.
+                    </p>
+
+                    <!-- Destaques de Data e Hora -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-fundoVermelho/40">
+                        <!-- Card Data -->
+                        <div class="flex items-center space-x-4 bg-fundoPreto p-4 rounded-xl border border-fundoVermelho/60 shadow-inner">
+                            <div class="w-12 h-12 rounded-lg bg-fundoVermelho flex items-center justify-center text-white text-xl shadow-md">
+                                <i class="fa-solid fa-calendar-day"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-manu text-fundoRosa uppercase tracking-wider block">Data Especial</span>
+                                <p class="font-manu text-xl text-white">Sábado, 14 de Novembro</p>
+                            </div>
+                        </div>
+
+                        <!-- Card Horário -->
+                        <div class="flex items-center space-x-4 bg-fundoPreto p-4 rounded-xl border border-fundoVermelho/60 shadow-inner">
+                            <div class="w-12 h-12 rounded-lg bg-fundoVermelho flex items-center justify-center text-white text-xl shadow-md">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-manu text-fundoRosa uppercase tracking-wider block">Horário de Início</span>
+                                <p class="font-manu text-xl text-white">A partir das 18h30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REGRAS DA FESTA -->
             <section id="regras">
                 <!-- Cabeçalho da Seção -->
                 <div class="text-center mb-14">
@@ -69,7 +120,7 @@
                 <!-- Grid de Regras: Fantasias & Socialização -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     
-                    <!-- Card 1: FANTASIAS -->
+                    <!-- FANTASIAS -->
                     <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
                         <div>
                             <!-- Ícone e Título -->
@@ -114,7 +165,7 @@
                         </div>
                     </div>
 
-                    <!-- Card 2: REGRAS DE SOCIALIZAÇÃO -->
+                    <!-- REGRAS DE SOCIALIZAÇÃO -->
                     <div class="bg-fundoDarkRed border-2 border-fundoVermelho hover:border-fundoRosa rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
                         <div>
                             <!-- Ícone e Título -->
@@ -179,9 +230,7 @@
             </section>
 
 
-            <!-- ============================================== -->
-            <!-- SEÇÃO 2: LOCAL DA FESTA & MAPA                 -->
-            <!-- ============================================== -->
+            <!-- LOCAL DA FESTA & MAPA -->
             <section id="local-mapa" class="pt-6">
                 <!-- Cabeçalho da Seção -->
                 <div class="text-center mb-12">
