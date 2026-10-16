@@ -52,7 +52,7 @@
             </div>
 
             <!-- Container do cabeçalho/menu de navegação -->
-            <div id="header-container" class="relative z-10">
+            <div id="header-container" class="relative z-30">
                 <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between relative">
                     <!-- Logo -->
                     <div class="flex items-center space-x-2">
@@ -76,9 +76,11 @@
                                 <i class="fa-solid fa-angle-down text-xs"></i>
                             </button>
                             <!-- Subseções ocultas que aparecem ao passar o mouse -->
-                            <div class="absolute left-0 mt-0 w-48 bg-fundoPreto border border-fundoVermelho rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col py-2">
-                                <a href="quiz.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Qual era a minha idade?</a>
-                                <a href="curiosidades.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Curiosidades sobre mim</a>
+                            <div class="absolute left-0 top-full pt-1 w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                                <div class="bg-fundoPreto border border-fundoVermelho rounded-lg shadow-xl flex flex-col py-2">
+                                    <a href="quiz.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Qual era a minha idade?</a>
+                                    <a href="curiosidades.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Curiosidades sobre mim</a>
+                                </div>
                             </div>
                         </div>
 
@@ -175,15 +177,23 @@
                     </p>
                 </div>
 
-                <!-- Menu de Imagens Deslizantes em Movimento Lento e Contínuo -->
-                <div class="relative w-full overflow-hidden py-4">
+                <!-- Menu de Imagens Deslizantes em Movimento Lento e Contínuo + Rolagem Manual -->
+                <div class="relative w-full py-4">
                     
-                    <!-- Efeitos de fade suave nas laterais para entrada e saída elegantes -->
-                    <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-fundoPreto to-transparent z-10"></div>
-                    <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-fundoPreto to-transparent z-10"></div>
+                    <!-- Botões de Navegação Manual (Esquerda / Direita) -->
+                    <button onclick="rolarCarrossel(-1)" aria-label="Anterior" class="absolute left-1 sm:left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-fundoDarkRed/90 hover:bg-fundoVermelho text-fundoRosa hover:text-white border-2 border-fundoVermelho hover:border-fundoRosa shadow-xl flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer">
+                        <i class="fa-solid fa-chevron-left text-sm sm:text-base"></i>
+                    </button>
+                    <button onclick="rolarCarrossel(1)" aria-label="Próximo" class="absolute right-1 sm:right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-fundoDarkRed/90 hover:bg-fundoVermelho text-fundoRosa hover:text-white border-2 border-fundoVermelho hover:border-fundoRosa shadow-xl flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer">
+                        <i class="fa-solid fa-chevron-right text-sm sm:text-base"></i>
+                    </button>
 
-                    <!-- Wrapper do Carrossel Contínuo -->
-                    <div class="carrossel-wrapper">
+                    <!-- Efeitos de fade suave nas laterais para entrada e saída elegantes -->
+                    <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-fundoPreto to-transparent z-10"></div>
+                    <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-fundoPreto to-transparent z-10"></div>
+
+                    <!-- Wrapper do Carrossel Contínuo e Deslizável Manualmente -->
+                    <div id="carrosselDelicias" class="carrossel-wrapper no-scrollbar">
                         
                         <!-- GRUPO 1 -->
                         <div class="carrossel-grupo">
@@ -310,8 +320,8 @@
                                 </div>
                             </div>
                         </div>
-
-
+                    </div>
+                </div>
             </div>
         </section>
 
