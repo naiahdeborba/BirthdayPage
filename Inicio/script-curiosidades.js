@@ -55,7 +55,7 @@ const bancoCuriosidades = [
             C: "Peitoral",
             D: "Narinas",
         },
-        respostaCorreta: "D" 
+        respostaCorreta: "A" 
     },
     {
         pergunta: "Se eu pudesse ser um ser mágico, qual eu seria?",
@@ -121,7 +121,7 @@ const bancoCuriosidades = [
 
         },
     {
-        pergunta: "Qual o nome do meu amado pai?",
+        pergunta: "Qual o nome do meu pai?",
         opcoes: {
             A: "Elias",
             B: "Isaac",
@@ -132,14 +132,14 @@ const bancoCuriosidades = [
 
         },
     {
-        pergunta: "Quais desses medos eu tenho?",
+        pergunta: "Quais gêneros de filme e série são meus preferidos?",
         opcoes: {
-            A: "Aranhas, baratas e cobras",
-            B: "Altura, escuro e louva-Deus",
-            C: "Vespas, palhaço e ratos",
-            D: "Lagartixa, borboleta e agulha",
+            A: "Ficção Científica e Fantasia",
+            B: "Drama e Romance",
+            C: "Suspense e Terror",
+            D: "Comédia e Animação",
         },
-        respostaCorreta: "B" 
+        respostaCorreta: "C" 
     },
     {
         pergunta: "Na minha infância eu passava todos os verões aonde?",
@@ -153,7 +153,7 @@ const bancoCuriosidades = [
 
         },
     {
-        pergunta: "Qual o outro idioma que eu sei falar, mas quase ninguém sabe?",
+        pergunta: "Qual o outro idioma que eu sei falar, mas quase ninguém sabe que eu sei?",
         opcoes: {
             A: "Espanhol",
             B: "Francês",
@@ -166,15 +166,15 @@ const bancoCuriosidades = [
         pergunta: "Fiz uma viagem sozinha para comemorar meu aniversário de 28 anos, para onde eu fui?",
         opcoes: {
             A: "Bahia",
-            B: "Rio de Janeiro",
+            B: "Bombinhas",
             C: "Macéio",
-            D: "Bombinhas",
+            D: "Rio de Janeiro",
         },
-        respostaCorreta: "B"
+        respostaCorreta: "D"
 
         },
     {
-        pergunta: "Sei fazer maça do amor, a primeira vez que eu fiz o que aconteceu?",
+        pergunta: "Sei fazer maçã do amor, a primeira vez que eu fiz o que aconteceu?",
         opcoes: {
             A: "Derrubei a calda por toda a cozinha",
             B: "Deu tudo certo e vendi as maçãs no colégio",
@@ -198,11 +198,11 @@ const bancoCuriosidades = [
         pergunta: "Quando eu ainda era criança, meus irmãos quase leveram uma bronca por minha causa. Qual foi o motivo?",
         opcoes: {
             A: "Joguei papel higiênico no teto",
-            B: "Derrubei uma parede",
+            B: "Quebrei o vidro do carro",
             C: "Coloquei fogo em casa",
-            D: "Quebrei o vidro do carro",
+            D: "Derrubei uma parede",
         },
-        respostaCorreta: "C" 
+        respostaCorreta: "B" 
     },
     {
         pergunta: "Qual estilo de jogo de tabuleiro eu mais gosto?",
@@ -225,12 +225,32 @@ const bancoCuriosidades = [
         respostaCorreta: "A"
     },
     {
-        pergunta: "Se eu fosse presa por agressão, qual teria sido o motivo da briga?",
+        pergunta: "Se eu tivesse um fim de semana ensolarado totalmente livre sem compromissos, o que eu preferiria fazer?",
         opcoes: {
-            A: "Alguém maltratando um animal",
-            B: "Briga de trânsito",
-            C: "Alguém que me estressou",
-            D: "Não tem motivo, eu nunca brigaria",
+            A: "Passar o dia passeando no shopping e fazendo compras",
+            B: "Treinar corrida ao ar livre e pular corda",
+            C: "Maratonar filmes e séries de suspense/terror",
+            D: "Passar passeando ao ar livre ou na praia",
+        },
+        respostaCorreta: "D"
+    },
+    {
+        pergunta: "O que eu dizia que queria ser quando crescesse quando era criança?",
+        opcoes: {
+            A: "Ser veterinária",
+            B: "Ser dona de salão de beleza",
+            C: "Ser professora de artes",
+            D: "Ser dona da uma floricultura",
+        },
+        respostaCorreta: "C"
+    },
+    {
+        pergunta: "O que eu costumava colecionar e guardar com o maior carinho do mundo?",
+        opcoes: {
+            A: "Adesivos e papel de carta",
+            B: "Pedras, conchinhas do mar ou coisas da natureza",
+            C: "Figurinhas, álbuns e tazos",
+            D: "Revistinhas em quadrinhos e almanaques",
         },
         respostaCorreta: "A"
     }
