@@ -17,15 +17,17 @@ const HTML_CABECALHO = `
         <a href="index.html" class="hover:text-fundoRosa transition-colors">Início</a>
         
         <!-- Menu Dropdown de Quizzes -->
-        <div class="relative group">
+        <div class="relative group z-50">
             <button class="hover:text-fundoRosa transition-colors flex items-center space-x-1 focus:outline-none py-2">
                 <span>Quiz</span>
                 <i class="fa-solid fa-angle-down text-xs"></i>
             </button>
             <!-- Subseções ocultas que aparecem ao passar o mouse -->
-            <div class="absolute left-0 mt-0 w-48 bg-fundoPreto border border-fundoVermelho rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col py-2">
-                <a href="quiz.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Qual era a minha idade?</a>
-                <a href="curiosidades.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Curiosidades sobre mim</a>
+            <div class="absolute left-0 top-full pt-1 w-48 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                <div class="bg-fundoPreto border border-fundoVermelho rounded-lg shadow-xl flex flex-col py-2">
+                    <a href="quiz.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Qual era a minha idade?</a>
+                    <a href="curiosidades.html" class="px-4 py-2 text-xs text-fundoRosa hover:bg-fundoDarkRed hover:text-white transition-colors">Curiosidades sobre mim</a>
+                </div>
             </div>
         </div>
 
@@ -136,6 +138,8 @@ function carregarCabecalho() {
 document.addEventListener("DOMContentLoaded", () => {
     carregarCabecalho();
     carregarRecadosDoBanco();
+    iniciarContagemRegressiva(); //Inicia o cronômetro do quiz
+    inicializarCarrosselDelicias();
 });
 
 // Função para controlar a abertura e fechamento do menu mobile
@@ -253,21 +257,159 @@ function escapeHTML(text){
     return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-// Função para rolar o menu deslizante (carrossel) de delícias
+// Variáveis de controle do carrossel de delícias
+let carrosselPausado = false;
+let timeoutRetomarCarrossel = null;
+
+// Função para pausar temporariamente a rolagem automática ao interagir manualmente
+function pausarCarrosselTemporariamente(tempoMs = 3500) {
+    carrosselPausado = true;
+    if (timeoutRetomarCarrossel) clearTimeout(timeoutRetomarCarrossel);
+    timeoutRetomarCarrossel = setTimeout(() => {
+        carrosselPausado = false;
+    }, tempoMs);
+}
+
+// Função para rolar o menu deslizante (carrossel) de delícias manualmente pelos botões
 function rolarCarrossel(direcao) {
     const carrossel = document.getElementById('carrosselDelicias');
     if (!carrossel) return;
-    const larguraPasso = 340; // largura de deslocamento por clique
+
+    pausarCarrosselTemporariamente(4000);
+
+    const grupo = carrossel.querySelector('.carrossel-grupo');
+    const larguraLoop = grupo ? grupo.offsetWidth + 24 : carrossel.scrollWidth / 2;
+    const larguraPasso = window.innerWidth < 640 ? 300 : 340;
+
+    // Se estiver no início e clicar para voltar, salta silenciosamente para a metade para manter o loop infinito
+    if (direcao < 0 && carrossel.scrollLeft <= 10 && larguraLoop > 0) {
+        carrossel.scrollLeft += larguraLoop;
+    } else if (direcao > 0 && larguraLoop > 0 && carrossel.scrollLeft >= larguraLoop) {
+        carrossel.scrollLeft -= larguraLoop;
+    }
+
     carrossel.scrollBy({
         left: direcao * larguraPasso,
         behavior: 'smooth'
     });
 }
 
+// Inicializa o movimento contínuo suave + suporte a toque (swipe) e arraste no carrossel
+function inicializarCarrosselDelicias() {
+    const carrossel = document.getElementById('carrosselDelicias');
+    if (!carrossel) return;
+
+    let interagindo = false;
+
+    // Eventos de toque (Mobile) e mouse (Desktop)
+    carrossel.addEventListener('touchstart', () => {
+        interagindo = true;
+        carrosselPausado = true;
+        if (timeoutRetomarCarrossel) clearTimeout(timeoutRetomarCarrossel);
+    }, { passive: true });
+
+    carrossel.addEventListener('touchend', () => {
+        interagindo = false;
+        pausarCarrosselTemporariamente(3500);
+    }, { passive: true });
+
+    carrossel.addEventListener('mouseenter', () => {
+        interagindo = true;
+        carrosselPausado = true;
+    });
+
+    carrossel.addEventListener('mouseleave', () => {
+        interagindo = false;
+        carrosselPausado = false;
+    });
+
+    // Mantém o loop infinito ao deslizar manualmente com o dedo
+    carrossel.addEventListener('scroll', () => {
+        const grupo = carrossel.querySelector('.carrossel-grupo');
+        if (!grupo) return;
+        const larguraLoop = grupo.offsetWidth + 24; // largura do grupo + gap (1.5rem = 24px)
+        if (larguraLoop <= 0) return;
+
+        if (carrossel.scrollLeft >= larguraLoop * 1.5) {
+            carrossel.scrollLeft -= larguraLoop;
+        }
+    }, { passive: true });
+
+    // Animação contínua suave via scrollLeft (permite rolar manualmente a qualquer momento)
+    let acumuladorSubpixel = 0;
+    function animarLoop() {
+        if (!carrosselPausado && !interagindo) {
+            acumuladorSubpixel += 0.65; // Velocidade suave
+            if (acumuladorSubpixel >= 1) {
+                const passo = Math.floor(acumuladorSubpixel);
+                acumuladorSubpixel -= passo;
+                carrossel.scrollLeft += passo;
+
+                const grupo = carrossel.querySelector('.carrossel-grupo');
+                if (grupo) {
+                    const larguraLoop = grupo.offsetWidth + 24;
+                    if (larguraLoop > 0 && carrossel.scrollLeft >= larguraLoop) {
+                        carrossel.scrollLeft -= larguraLoop;
+                    }
+                }
+            }
+        }
+        requestAnimationFrame(animarLoop);
+    }
+
+    requestAnimationFrame(animarLoop);
+}
+
 
 
 // --- LÓGICA DO QUIZ ---
+//CONTAGEM REGRESSIVA E BLOQUEIO DO QUIZ
+let intervaloContagem = null;
 
+function iniciarContagemRegressiva(){
+    const telaBloqueio = document.getElementById('telaBloqueio');
+    const telaCadastro = document.getElementById('telaCadastro');
+    //Se não tiver na página do quiz (onde esses elementos existem), ignora a função
+    if (!telaBloqueio || !telaCadastro) return;
+
+    const dataFesta = new Date(2026, 10, 14, 19, 30, 0).getTime();
+
+    function atualizar(){
+        const agora = new Date().getTime();
+        const diferenca = dataFesta - agora;
+
+        //Se o horário da festa já chegou ou passou
+        if (diferenca <= 0){
+            if (intervaloContagem) clearInterval(intervaloContagem);
+            telaBloqueio.classList.add('hidden');
+            telaCadastro.classList.remove('hidden');
+            return;
+        }
+
+        //Se ainda é antes da festa, mantém bloqueado
+        telaBloqueio.classList.remove('hidden');
+        telaCadastro.classList.add('hidden');
+
+        //Cálculo do tempo restante
+        const dias = Math.floor(diferenca /(1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca %(1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca %(1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        // Atualiza os contadores no HTML
+        const elDias = document.getElementById('diasContagem');
+        const elHoras = document.getElementById('horasContagem');
+        const elMinutos = document.getElementById('minutosContagem');
+        const elSegundos = document.getElementById('segundosContagem');
+
+        if (elDias) elDias.innerText = String(dias).padStart(2, '0');
+        if (elHoras) elHoras.innerText = String(horas).padStart(2, '0');
+        if (elMinutos) elMinutos.innerText = String(minutos).padStart(2, '0');
+        if (elSegundos) elSegundos.innerText = String(segundos).padStart(2, '0');
+    }
+    atualizar();
+    intervaloContagem = setInterval(atualizar, 1000);
+}
 // Lista de perguntas do quiz (Você pode alterar fotos, legendas e idades conforme preferir)
 const perguntasQuiz = [
     {
@@ -298,7 +440,7 @@ const perguntasQuiz = [
     {
         foto: "imagens/quiz/Nai33.jpg",
         legenda: "Foto com o tapete Mágico após o gênio se aposentar",
-        idadeCorreta: 1 
+        idadeCorreta: 2 
     },
     {
         foto: "imagens/quiz/Nai23.jpg",

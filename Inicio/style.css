@@ -37,39 +37,23 @@ body {
     scrollbar-width: none;
 }
 
-/* Animação de movimento horizontal lento e infinito para o carrossel */
-@keyframes moverCarrosselLento {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-100% - 1.5rem));
-    }
-}
-
 .carrossel-wrapper {
     display: flex;
     gap: 1.5rem;
-    overflow: hidden;
+    overflow-x: auto;
     user-select: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+}
+
+.carrossel-wrapper:active {
+    cursor: grabbing;
 }
 
 .carrossel-grupo {
     display: flex;
     gap: 1.5rem;
     flex-shrink: 0;
-    animation: moverCarrosselLento 38s linear infinite;
-}
-
-/* Pausa suavemente o movimento ao passar o mouse ou segurar no celular */
-.carrossel-wrapper:hover .carrossel-grupo {
-    animation-play-state: paused;
-}
-
-@media (hover: none) {
-    .carrossel-wrapper:active .carrossel-grupo {
-        animation-play-state: paused;
-    }
 }
 
 /* Animação para girar 360 graus lentamente */
