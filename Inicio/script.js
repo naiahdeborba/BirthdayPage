@@ -484,43 +484,78 @@ const perguntasQuiz = [
     },
     {
         foto: "imagens/quiz/Nai1.jpg",
-        legenda: "Registro após uma longa caminhada pelos penhascos da Feiticeira",
+        legenda: "Após uma aventura mágica pelo Penhasco da Feiticeira",
         idadeCorreta: 17
     },
     {
+        foto: "imagens/quiz/Nai4.jpg",
+        legenda: "Quando fui convocada para participar de um duelo com vários outros cavalheiros e feiticeiras.",
+        idadeCorreta: 18
+    },
+    {
+        foto: "imagens/quiz/Nai7.jpg",
+        legenda: "Guardando itens mágicos no meu livro de poções",
+        idadeCorreta: 7
+    },
+    {
         foto: "imagens/quiz/Nai8.jpg",
-        legenda: "Tentando domar a filha da Moby-Dick",
+        legenda: "Domando a Moby Dick de Ponta das Canas",
+        idadeCorreta: 9
+    },
+    {
+        foto: "imagens/quiz/Nai10.jpg",
+        legenda: "Procurando os itens que a Ariel pegou para ela",
         idadeCorreta: 10
     },
     {
-        foto: "imagens/quiz/Nai2.jpg",
-        legenda: "Voltando de um passeio com as sereias",
-        idadeCorreta: 20
+        foto: "imagens/quiz/Nai15.jpg",
+        legenda: "Comemorando meus 108 anos de vida vampiríca",
+        idadeCorreta: 8
+    },
+    {
+        foto: "imagens/quiz/Nai16.jpg",
+        legenda: "Possando para Leonard da Vinci antes dele conhecer Monalisa",
+        idadeCorreta: 8
+    },
+    {
+        foto: "imagens/quiz/Nai18.jpg",
+        legenda: "Pedindo a opinião da Fada do dente sobre meu sorriso colgate",
+        idadeCorreta: 12
     },
     {
         foto: "imagens/quiz/Nai19.jpg",
-        legenda: "Registro do dia que uma bruxa me amaldiçou a virar lobismulher",
+        legenda: "Usando meus poderes aracnídeos com meu olhar de viúva negra",
         idadeCorreta: 15
     },
     {
-        foto: "imagens/quiz/Nai21.jpg",
-        legenda: "Mostrando a instalação de uma técnologia revulocionária que iria mudar o futuro",
-        idadeCorreta: 19
+        foto: "imagens/quiz/Nai25.jpg",
+        legenda: "Dando um sorriso para meus fãs",
+        idadeCorreta: 1
     },
     {
-        foto: "imagens/quiz/Nai8.jpg",
-        legenda: "Tentando domar a filha da Moby-Dick",
-        idadeCorreta: 10
+        foto: "imagens/quiz/Nai26.jpg",
+        legenda: "Sendo brutalmente atacada com muitos abraços e beijos",
+        idadeCorreta: 1
     },
     {
-        foto: "imagens/quiz/Nai8.jpg",
-        legenda: "Tentando domar a filha da Moby-Dick",
-        idadeCorreta: 10
+        foto: "imagens/quiz/Nai27.jpg",
+        legenda: "Tendo uma crise de risada após meus planos maléficos terem dado certo",
+        idadeCorreta: 1
     },
     {
-        foto: "imagens/quiz/Nai8.jpg",
-        legenda: "Tentando domar a filha da Moby-Dick",
-        idadeCorreta: 10
+        foto: "imagens/quiz/Nai31.jpg",
+        legenda: "Passeando pela Enseada do Olho torto com a Pricensa Luana",
+        idadeCorreta: 4
+    },
+    {
+        foto: "imagens/quiz/Nai32.jpg",
+        legenda: "Fazendo um churrasquinho de sapo com carne de urubu",
+        idadeCorreta: 2
+    },
+    {
+        foto: "imagens/quiz/Nai38.jpg",
+        legenda: "Aproveitando o carinho da minha Rainha",
+        idadeCorreta: 21
     }
 ];
 
